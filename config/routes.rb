@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 	get 'static/detalledepartamento'
 	get 'static/solicitarcita'
 
+	get 'static/departamentos'
+
 	root 'home#index'
 	
 	post 'static/mimetodo'

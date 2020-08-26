@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
+  	resources :cita
   	resources :alumnos
   	get 'home/index'
   	
-
+	get 'cita/showcita'
 	get 'static/aboutus'
 	get 'static/contactus'
 	get 'static/services'
 	get 'static/faq'
+	get 'static/detalledepartamento'
+	get 'static/solicitarcita'
 
 	root 'home#index'
 	

@@ -12,9 +12,9 @@ class StaticController < ApplicationController
 	end
 
 	def faq
-	end
-
-	#Mi metodo Post
+    end
+    
+    #Mi metodo Post
 	def mimetodo
         puts "------- Datos enviados por el formulario -------------"
         puts
@@ -28,5 +28,9 @@ class StaticController < ApplicationController
         puts
         puts "--------Fin -----------"
     end
-	
+    
+    def detalledepartamento
+    end
+
 end
+

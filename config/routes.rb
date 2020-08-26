@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 	get 'static/contactus'
 	get 'static/services'
 	get 'static/faq'
+	get 'static/busquedacitas'
+	get 'static/proforma'
+	get 'static/separardepartamento'
 
 	root 'home#index'
 	

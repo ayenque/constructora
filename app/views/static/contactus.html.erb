@@ -1,0 +1,40 @@
+<%= content_for :head do %>
+	<title>Contactenos</title>
+<% end %>
+
+<%= content_for :intro do %>
+	<h3>Contáctenos</h3>
+	
+<% end %>
+
+<div class="row">
+    <div class="col-5">
+        <p>Ingrese sus datos en el siguiente formulario:</p>
+
+    	<%= form_for :upc, :html => { :method => :post , :class => "needs-validation", :novalidate => "novalidate" }, :url => { :controller => "static", :action => "mimetodo" } do |f| %>
+            <div class="form-group">
+                <%= f.text_field :name, { :class => "form-control", :placeholder => "Ingrese Nombre", :required => "required"} %>
+                <div class="valid-feedback">Valido</div>
+                <div class="invalid-feedback">Por favor ingresar el nombre</div>
+            </div>
+            <div class="form-group">
+                <%= f.text_field :lastname, { :class => "form-control", :placeholder => "Ingrese Apellido", :required => "required" } %>
+                <div class="valid-feedback">Valido</div>
+                <div class="invalid-feedback">Por favor ingresar el apellido</div>
+            </div>
+            <div class="form-group">
+                <%= f.email_field :email, { :class => "form-control", :placeholder => "Ingrese Email", :required => "required" } %>
+                <div class="valid-feedback">Valido</div>
+                <div class="invalid-feedback">Por favor ingresar el email</div>
+            </div>
+            <div class="form-group">
+                <%= f.submit "Enviar Datos", :class => "btn btn-primary" %>
+            </div>
+        <% end %>
+
+    </div>
+    <div class="col-7">
+        <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=Universidad%20Peruana%20de%20Ciencias%20Aplicadas&key=AIzaSyA-mX5Z7eJL5GKASzo5gSNavXxX748a5Y4" allowfullscreen> 
+        </iframe>
+    </div>
+</div>

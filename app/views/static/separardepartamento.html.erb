@@ -1,0 +1,56 @@
+<%= content_for :head do %>
+	<title>Separar Departamento</title>
+<% end %>
+
+<%= content_for :intro do %>
+	<h3>Separar Departamento</h3>
+<% end %>
+
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Número de Departamento</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+   
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Número de Voucher</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+   
+  </div>
+<label for="exampleInputEmail1">Monto depositado</label>
+        <div class="input-group">
+
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <label for="exampleInputEmail1">$_</label>
+            <input type="radio" aria-label="Radio button for following text input">
+            </div>
+          </div>
+          <input type="text" class="form-control" aria-label="Text input with radio button">
+        </div>
+
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <label for="exampleInputEmail1">S/</label>
+            <input type="radio" aria-label="Radio button for following text input">
+            </div>
+          </div>
+          <input type="text" class="form-control" aria-label="Text input with radio button">
+        </div>
+
+
+
+
+
+  <div class="form-group">
+    <label for="exampleInputPassword1">Confirmar Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <div class="form-check">
+
+  </div>
+  <button type="submit" class="btn btn-primary">Reservar Departamento</button>
+</form>
+
+

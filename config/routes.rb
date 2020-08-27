@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 	get 'static/services'
 	get 'static/faq'
 
+	get 'static/admUsuarios'
+	get 'static/registroVta'
+	get 'static/reporteDptos'
+
 	root 'home#index'
 	
 	post 'static/mimetodo'

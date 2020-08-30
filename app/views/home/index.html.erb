@@ -13,18 +13,16 @@
         <%= form_for :upc, :html => { :method => :post, :class => "needs-validation", :novalidate => "novalidate" }, :url => { :controller => "static", :action => "mimetodo" } do |f| %>
             <div class="form-group">
                 <%= f.text_field :name, { :class => "form-control", :placeholder => "Por ubicación" } %>
-            </div>
-              
+            </div>              
             <div class="form-group">
-                    <select class="form-control" id="exampleFormControlSelect1" value="Por Proyecto">
-                    <option>Por proyecto</option>
-                    <option>Ubicación 2</option>
-                    <option>Ubicación 3</option>
-                    <option>Ubicación 4</option>
-                    <option>Ubicación 5</option>
-                    </select>
+                <select class="form-control" id="exampleFormControlSelect1" value="Por Proyecto">
+                <option>Por proyecto</option>
+                <option>Proyecto 1</option>
+                <option>Proyecto 3</option>
+                <option>Proyecto 4</option>
+                <option>Proyecto 5</option>
+                </select>
             </div>
-
             <div class="form-group">
                 <%= f.number_field :precio, { :class => "form-control", :placeholder => "Por precio" } %>
             </div>
@@ -47,7 +45,6 @@
                 <li data-target="#carousel_1" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
-
                 <div class="carousel-item active">
                     <img src="https://i.ibb.co/wKFVY5b/depa1.jpg" alt="Primer Slide" class="img-responsive" width="100%" height="500">      
                     <div class="carousel-caption d-none d-md-block">
@@ -55,7 +52,6 @@
                         <p>Descripcion Departamento 1</p>
                     </div>
                 </div>
-
                 <div class="carousel-item">
                     <img src="https://i.ibb.co/rdX0cCQ/depa2.jpg" alt="Segundo Slide" class="img-responsive" width="100%" height="500"> 
                     <div class="carousel-caption d-none d-md-block">
@@ -63,7 +59,6 @@
                         <p>Descripcion Departamento 2e</p>
                     </div>
                 </div>
-
                 <div class="carousel-item"> 
                     <img src="https://i.ibb.co/QHHT9b2/depa3.jpg" alt="Tercer Slide" class="img-responsive" width="100%" height="500"> 
                     <div class="carousel-caption d-none d-md-block">
@@ -72,12 +67,10 @@
                     </div>
                 </div>
             </div>
-
             <a href="#carousel_1" class="carousel-control-prev" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Anterior</span>
             </a>
-
             <a href="#carousel_1" class="carousel-control-next" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Siguiente</span>

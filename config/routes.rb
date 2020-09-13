@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 	get 'static/admUsuarios'
 	get 'static/registroVta'
 	get 'static/reporteDptos'
+
 	get 'static/busquedacitas'
 	get 'static/proforma'
 	get 'static/separardepartamento'

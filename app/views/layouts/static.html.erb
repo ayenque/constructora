@@ -48,7 +48,7 @@
             <a class="nav-link" href="/static/contactus">CONTÁCTENOS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/static/services">PROYECTOS</a>
+            <a class="nav-link" href="/proyectos">PROYECTOS</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/static/faq">ACCEDER</a>
@@ -62,7 +62,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/static/separardepartamento">SEPARAR DEPARTAMENTO</a>
           </li>
-             <li class="nav-item">
+            <li class="nav-item">
             <a class="nav-link" href="/cita">CITAS</a>
           </li>
 
@@ -87,13 +87,14 @@
       </div>
     </nav>    
     <div class="container">
-      <div class="row">
-        <div class="col-9">
+      <!--<div class="row">
+        <div class="col-9">-->
           <%= yield :intro %>
           <%= yield %>
-          <!-- <%= render partial: 'static/menu' %> -->
-        </div>
-        
+          <%= render "layouts/pie" %>
+         
+        <!--</div>-->
+        <!--
         <div class="col-3">
           <br>
           <ul class="list-group">
@@ -103,12 +104,11 @@
             <li class="list-group-item">Opcion Lateral 4</li>
             <li class="list-group-item">Opcion Lateral 5</li>
           </ul>
-        </div>
+        </div>-->
 
       </div>
     </div>
 
-    
   </body>
 
 

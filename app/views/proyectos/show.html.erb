@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+
+<table summary="Section form fields" class="table">
+	<tr>
+		<th>Nombre:</th>
+		<td><%= @proyecto.nombre %></td>
+	</tr>
+	<tr>
+		<th>Descripcion:</th>
+		<td><%= @proyecto.descripcion %></td>
+	</tr>
+	<tr>
+		<th>Ruta avatar:</th>
+		<td><%= @proyecto.foto %></td>
+	</tr>
+</table>
+	<tr>
+		<th>Avatar:</th>
+		<td>
+		  <%= image_tag(@proyecto.avatar.url,
+		                style: 'height:auto;width:300px;', alt: 'Avatar') if @proyecto.avatar? %><br>
+		</td>
+	</tr>
+
+<%= link_to 'Edit', edit_proyecto_path(@proyecto), :class => "btn btn-warning" %> |
+<%= link_to 'Back', proyectos_path, :class => "btn btn-warning" %>

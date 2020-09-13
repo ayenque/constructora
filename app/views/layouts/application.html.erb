@@ -31,7 +31,7 @@
             <a class="nav-link" href="/static/contactus">CONTÁCTENOS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/static/services">PROYECTOS</a>
+            <a class="nav-link" href="/proyectos">PROYECTOS</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/static/faq">ACCEDER</a>
@@ -50,6 +50,7 @@
             <li class="nav-item">
             <a class="nav-link" href="/cita">CITAS</a>
           </li>
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Mas Opciones
@@ -74,7 +75,9 @@
     <div class="container">
       <%= yield :intro %>
       <%= yield %>  
+      <%= render "layouts/pie" %>
     </div>
 
+  
   </body>
 </html>

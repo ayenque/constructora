@@ -12,36 +12,37 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :dni %>
-    <%= form.text_field :dni %>
+    <%= form.label :DNI , "DNI" %>
+    <%= form.text_field :dni, { :class => "form-control", :placeholder => "Ingrese sus DNI" } %>
   </div>
 
   <div class="field">
-    <%= form.label :nombre %>
-    <%= form.text_field :nombre %>
+    <%= form.label :Nombres %>
+    <%= form.text_field :nombre, { :class => "form-control", :placeholder => "Ingrese sus nombres" } %>
   </div>
 
   <div class="field">
-    <%= form.label :apellido %>
-    <%= form.text_field :apellido %>
+    <%= form.label :Apellidos %>
+    <%= form.text_field :apellido, { :class => "form-control", :placeholder => "Ingrese sus apellidos" } %>
   </div>
 
   <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.label :Email %>
+    <%= form.email_field :email, { :class => "form-control", :placeholder => "Ingrese su email" } %>
   </div>
 
   <div class="field">
-    <%= form.label :telefono %>
-    <%= form.text_field :telefono %>
+    <%= form.label :Telefono %>
+    <%= form.text_field :telefono, { :class => "form-control", :placeholder => "Ingrese su telefono" } %>
   </div>
 
   <div class="field">
-    <%= form.label :fechacita %>
-    <%= form.date_select :fechacita %>
+    <%= form.label :fechacita , "Fecha de cita" %>
+    <br>
+    <%= form.date_select :fechacita, { :class => "form-control", :placeholder => "Ingrese una fecha para su cita" } %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Enviar Datos", :class => "btn btn-success" %>
   </div>
 <% end %>

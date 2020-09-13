@@ -34,7 +34,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">      
       <a class="navbar-brand mr-auto mr-lg-0" href="/">INICIO</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -48,15 +48,11 @@
             <a class="nav-link" href="/static/contactus">CONTÁCTENOS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/static/services">PROYECTOS</a>
+            <a class="nav-link" href="/proyectos">PROYECTOS</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/static/faq">ACCEDER</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/alumnos">OTROS</a>
-          </li>
-<<<<<<< HEAD
           <li class="nav-item">
             <a class="nav-link" href="/static/busquedacitas">BUSQUEDA DE CITAS</a>
           </li>
@@ -66,15 +62,23 @@
           <li class="nav-item">
             <a class="nav-link" href="/static/separardepartamento">SEPARAR DEPARTAMENTO</a>
           </li>
-=======
-           <li class="nav-item">
-            <a class="nav-link" href="/static/detalledepartamento">DETALLES DEPARTAMENTO</a>
-          </li>
             <li class="nav-item">
             <a class="nav-link" href="/cita">CITAS</a>
           </li>
 
->>>>>>> 12de0502f8ef753c422f488ce5d4d8685a186f74
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Mas Opciones
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/static/admUsuarios">Adm. de Usuarios</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/static/registroVta">Registro de Venta</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/static/reporteDptos">Listado de Dptos.</a>
+            </div>
+          </li>
+
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -83,13 +87,14 @@
       </div>
     </nav>    
     <div class="container">
-      <div class="row">
-        <div class="col-9">
+      <!--<div class="row">
+        <div class="col-9">-->
           <%= yield :intro %>
           <%= yield %>
-          <!-- <%= render partial: 'static/menu' %> -->
-        </div>
-        
+          <%= render "layouts/pie" %>
+         
+        <!--</div>-->
+        <!--
         <div class="col-3">
           <br>
           <ul class="list-group">
@@ -99,12 +104,11 @@
             <li class="list-group-item">Opcion Lateral 4</li>
             <li class="list-group-item">Opcion Lateral 5</li>
           </ul>
-        </div>
+        </div>-->
 
       </div>
     </div>
 
-    
   </body>
 
 

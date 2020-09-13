@@ -1,0 +1,3 @@
+class Proyecto < ApplicationRecord
+	mount_uploader :avatar, AvatarUploader
+end

@@ -69,6 +69,6 @@ class CitationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def citation_params
-      params.require(:citation).permit(:dni, :nombre, :apellido, :email, :telefono, :fechacita)
+      params.require(:citation).permit(:dni, :nombre, :apellido, :email, :telefono, :fechacita, :mensaje)
     end
 end

@@ -11,6 +11,7 @@
       <th>Email</th>
       <th>Telefono</th>
       <th>Fechacita</th>
+      <th>Mensaje</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,6 +25,7 @@
         <td><%= citation.email %></td>
         <td><%= citation.telefono %></td>
         <td><%= citation.fechacita %></td>
+        <td><%= citation.mensaje %></td>
         <td><%= link_to 'Mostrar', citation %></td>
         <td><%= link_to 'Editar', edit_citation_path(citation) %></td>
         <td><%= link_to 'Eliminar', citation, method: :delete, data: { confirm: 'Estas seguro de eliminar la cita?' } %></td>

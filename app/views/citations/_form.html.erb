@@ -42,6 +42,11 @@
     <%= form.date_select :fechacita, { :class => "form-control", :placeholder => "Ingrese una fecha para su cita" } %>
   </div>
 
+   <div class="field">
+    <%= form.label :mensaje, "Mensaje" %>
+    <%= form.text_area :mensaje, { :class => "form-control", :placeholder => "Ingrese su mensaje" } %>
+  </div>
+
   <div class="actions">
     <%= form.submit "Enviar Datos", :class => "btn btn-success" %>
   </div>

@@ -1,24 +1,58 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%= yield :head %>
+    <meta charset="utf-8">
+    <title>Constructora Grupo 5  - Inicio</title>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
+   
+    <!-- Favicons 
+    <link rel="icon" type="image/png" href="app/assets/img/favicon.png">
     
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <!-- Google Fonts 
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    
+    <!-- Vendor CSS Files 
+    <link rel="stylesheet" href="app/assets/fonts/style.css">
+    <link href="vendor/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <!-- Template Main CSS File 
+    <link href="app/assets/css/style.css" rel="stylesheet">
+
+     <!-- Vendor JS Files 
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="vendor/php-email-form/validate.js"></script>
+    <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+
+    <!-- Template Main JS File 
+    <script src="app/assets/js/main.js"></script>
+    -->
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-  </head>
-  <body>
+    
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">              
-      <a class="navbar-brand mr-auto mr-lg-0" href="/">INICIO</a>      
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= yield :head %>
+
+  </head>
+  <body bgcolor="blue">
+  
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">       
+      <a class="navbar-brand mr-auto mr-lg-0" href="/">INICIO</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -31,7 +65,7 @@
             <a class="nav-link" href="/static/contactus">CONTÁCTENOS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/static/services">PROYECTOS</a>
+            <a class="nav-link" href="/proyectos">PROYECTOS</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/static/faq">ACCEDER</a>
@@ -48,8 +82,9 @@
           </li>
           </li>
             <li class="nav-item">
-            <a class="nav-link" href="/cita">CITAS</a>
+            <a class="nav-link" href="/citations">CITAS</a>
           </li>
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Mas Opciones
@@ -64,17 +99,18 @@
           </li>
 
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        
       </div>
+    </div>
     </nav>    
     
     <div class="container">
       <%= yield :intro %>
       <%= yield %>  
-    </div>
 
+      <%= render "layouts/pie" %>
+  
+
+  </div>
   </body>
 </html>

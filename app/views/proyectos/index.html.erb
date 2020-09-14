@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Proyectos</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Ruta de imagen</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @proyectos.each do |proyecto| %>
+      <tr>
+        <td><%= proyecto.nombre %></td>
+        <td><%= proyecto.descripcion %></td>
+        <td><%= proyecto.foto %></td>
+        <td><%= link_to 'Mostrar', proyecto %></td>
+        <td><%= link_to 'Editar', edit_proyecto_path(proyecto) %></td>
+        <td><%= link_to 'Eliminar', proyecto, method: :delete, data: { confirm: 'Está seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  
+<%= link_to 'Nuevo Proyecto', new_proyecto_path, :class=> "btn btn-warning" %>
+<hr>
+<!-- primero queremos dividirlo en 3 para saber cuantas veces se crea -->
+<% n = @proyectos.count/3 %>
+<% count = 0 %>
+<% n.downto(0) do %>
+  <!-- Creamos la fila -->
+  <div class="row">
+    <!-- Creamos maximo 3 columnas y sale -->
+    <% 3.downto(0) do |i| %>
+      <!-- Verificamos que el  count no sea mayor a la cantidad de proyectos para evitar error -->
+      <% if count == @proyectos.count %>
+        <% break %>
+      <% end %>
+      <!-- Obtenemos el proyectos que toca -->
+      <% proyectos = @proyectos[count] %>
+      <!-- Utilizamos el proyectos -->
+      <div class="card">
+        <%= image_tag(proyectos.avatar.url, style: 'height:400px;width:370px;', alt: 'Avatar') if proyectos.avatar? %><br>
+        <div class="card-body">
+          <h5 class="card-title"><%= proyectos.nombre %></h5>
+          <p class="card-text"><%= proyectos.descripcion %></p>
+          <a href="/departamentos" class="btn btn-primary">Ir</a>
+        </div>
+      </div>
+      <!-- Aumentamos la posición para que en la siguiente utilice el siguiente proyectos -->
+      <% count += 1 %>
+    <% end %>
+  </div>
+<% end %>
+
+

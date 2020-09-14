@@ -1,15 +1,16 @@
 <%= content_for :head do %>
-	<title>FAQ</title>
+	<title>Login</title>
 <% end %>
 
 <%= content_for :intro do %>
-	<h3>Iniciar Sesión</h3>
-<% end %>
+	
+
 
 <br>
 
-<div class="row">
-	<div class="col-4">
+<div class="card" align="center">
+    <h3>Iniciar Sesión</h3>
+    <div class="card-body">
         <h5>Ingrese sus credenciales:</h5>
         <%= form_for :upc, :html => { :method => :post, :class => "needs-validation", :novalidate => "novalidate" }, :url => { :controller => "static", :action => "mimetodo" } do |f| %>
             <div class="form-group">
@@ -24,3 +25,6 @@
         <% end %>
     </div>
 </div>
+
+<% end %>
+

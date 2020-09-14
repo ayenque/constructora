@@ -1,0 +1,38 @@
+<%= form_with(model: proyecto, local: true) do |form| %>
+  <% if proyecto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(proyecto.errors.count, "error") %> prohibited this proyecto from being saved:</h2>
+
+      <ul>
+        <% proyecto.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, :class => "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_area :descripcion, {:class => "form-control", :rows => "5"} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :foto, "Ruta de iimagen" %>
+    <%= form.text_field :foto, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :avatar %>
+    <%= image_tag(@proyecto.avatar.url, style: 'height:auto;width:300px', alt: 'Avatar') if @proyecto.avatar? %><br>
+    <%= form.file_field :avatar, :class => "btn btn-info", accept:'image/*' %><br>
+  </div>
+
+  <div class="actions">
+    <%= form.submit :class => "btn btn-primary" %>
+  </div>
+<% end %>

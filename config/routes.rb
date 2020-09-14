@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :usuarios
+  	resources :cita
+  	resources :alumnos
+  	get 'home/index'
+  	
+	get 'cita/showcita'
 
   resources :departamentos
 
@@ -19,7 +25,8 @@ Rails.application.routes.draw do
 	get 'static/contactus'
 	get 'static/proyectos'
 	get 'static/faq'
-	get 'static/admUsuarios'
+
+	get 'usuarios/index'
 	get 'static/registroVta'
 	get 'static/reporteDptos'
 

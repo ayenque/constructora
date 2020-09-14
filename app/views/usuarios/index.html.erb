@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listado de Usuarios</h1>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>DNI</th>
+      <th>Nombres</th>
+      <th>Apellidos</th>
+      <th>Perfil</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @usuarios.each do |usuario| %>
+      <tr>
+        <td><%= usuario.dni %></td>
+        <td><%= usuario.nombres %></td>
+        <td><%= usuario.apellidos %></td>
+        <td><%= usuario.perfil %></td>
+        <td><%= link_to 'Ver', usuario %></td>
+        <td><%= link_to 'Editar', edit_usuario_path(usuario) %></td>
+        <td><%= link_to 'Eliminar', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Crear Usuario', new_usuario_path, :class => "btn btn-outline-primary" %>

@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Citas</h1>
+
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>DNI</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Email</th>
+      <th>Telefono</th>
+      <th>Fechacita</th>
+      <th>Mensaje</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @citations.each do |citation| %>
+      <tr>
+        <td><%= citation.dni %></td>
+        <td><%= citation.nombre %></td>
+        <td><%= citation.apellido %></td>
+        <td><%= citation.email %></td>
+        <td><%= citation.telefono %></td>
+        <td><%= citation.fechacita %></td>
+        <td>
+        <!-- Button trigger modal -->
+          <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">
+            Ver Mensaje
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Mensaje</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <%= citation.mensaje %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </td>
+        <td><%= link_to 'Mostrar', citation %></td>
+        <td><%= link_to 'Editar', edit_citation_path(citation) %></td>
+        <td><%= link_to 'Eliminar', citation, method: :delete, data: { confirm: 'Estas seguro de eliminar la cita?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nueva Cita', new_citation_path %>
+
+

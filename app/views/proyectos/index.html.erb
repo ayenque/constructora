@@ -36,8 +36,7 @@
   <div class="row">
     <!-- Creamos maximo 3 columnas y sale -->
     <% 3.downto(0) do |i| %>
-      <!-- Verificamos que el  count no sea mayor a la cantidad de proyectos
-         para evitar error -->
+      <!-- Verificamos que el  count no sea mayor a la cantidad de proyectos para evitar error -->
       <% if count == @proyectos.count %>
         <% break %>
       <% end %>
@@ -45,12 +44,11 @@
       <% proyectos = @proyectos[count] %>
       <!-- Utilizamos el proyectos -->
       <div class="card">
-        <%= image_tag(proyectos.avatar.url,
-                    style: 'height:400px;width:350px;', alt: 'Avatar') if proyectos.avatar? %><br>
+        <%= image_tag(proyectos.avatar.url, style: 'height:400px;width:370px;', alt: 'Avatar') if proyectos.avatar? %><br>
         <div class="card-body">
           <h5 class="card-title"><%= proyectos.nombre %></h5>
           <p class="card-text"><%= proyectos.descripcion %></p>
-          <a href="/static/departamentos" class="btn btn-primary">Ir</a>
+          <a href="/departamentos" class="btn btn-primary">Ir</a>
         </div>
       </div>
       <!-- Aumentamos la posición para que en la siguiente utilice el siguiente proyectos -->

@@ -1,6 +1,33 @@
-<h1>Nueva Cita</h1>
+
+    <br>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="title-single-box">
+              <h1 class="title-single">Formulario de Citas</h1>
+              <span class="font-weight-light">Gracias por su interés, por favor a continuación puede dejarnos sus datos</span>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="/">Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Generar Cita
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <br>
 
 <%= render 'form', citation: @citation %>
+
+
+
 
 <%= link_to 'Atrás', citations_path, :class => "btn btn-light"  %>
 

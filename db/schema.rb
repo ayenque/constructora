@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_09_14_013350) do
 
+
   create_table "alumnos", force: :cascade do |t|
     t.string "nombres"
     t.string "dni"
@@ -32,6 +33,18 @@ ActiveRecord::Schema.define(version: 2020_09_14_013350) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+
+  create_table "departamentos", force: :cascade do |t|
+    t.integer "numdpto"
+    t.integer "piso"
+    t.text "descripcion"
+    t.decimal "precio"
+    t.integer "area"
+    t.integer "numdormitorio"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "proyecto_id"
+
   create_table "citations", force: :cascade do |t|
     t.string "dni"
     t.string "nombre"
@@ -42,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_09_14_013350) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "mensaje"
+
   end
 
   create_table "proyectos", force: :cascade do |t|

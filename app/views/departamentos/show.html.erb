@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Numdpto:</strong>
+  <%= @departamento.numdpto %>
+</p>
+
+<p>
+  <strong>Piso:</strong>
+  <%= @departamento.piso %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @departamento.descripcion %>
+</p>
+
+<p>
+  <strong>Precio:</strong>
+  <%= @departamento.precio %>
+</p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @departamento.area %>
+</p>
+
+<p>
+  <strong>Numdormitorio:</strong>
+  <%= @departamento.numdormitorio %>
+</p>
+
+<p>
+  <strong>Id Proyecto:</strong>
+  <%= @departamento.proyecto_id %>
+</p>
+
+<%= link_to 'Editar', edit_departamento_path(@departamento), :classc => "btn btn-warning" %> |
+<%= link_to 'Atrás', departamentos_path, :class => "btn btn-warning" %>

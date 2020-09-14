@@ -1,52 +1,42 @@
-<%= form_with(model: departamento, local: true) do |form| %>
-  <% if departamento.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(departamento.errors.count, "error") %> prohibited this departamento from being saved:</h2>
 
-      <ul>
-        <% departamento.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
-    <%= form.label :numdpto, "Número de departamento:"  %>
-    <%= form.number_field :numdpto, :class => "form-control" %>
+    <%= f.label :numdpto, "Número de departamento:"  %>
+    <%= f.number_field :numdpto, :class => "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :piso, "Piso:" %>
-    <%= form.number_field :piso, :class => "form-control" %>
+    <%= f.label :piso, "Piso:" %>
+    <%= f.number_field :piso, :class => "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :descripcion, "Características:" %>
-    <%= form.text_area :descripcion, { :class => "form-control", :rows => "6" } %>
+    <%= f.label :descripcion, "Características:" %>
+    <%= f.text_area :descripcion, { :class => "form-control", :rows => "6" } %>
   </div>
 
   <div class="field">
-    <%= form.label :precio, "Precio S/:" %>
-    <%= form.text_field :precio, :class => "form-control" %>
+    <%= f.label :precio, "Precio S/:" %>
+    <%= f.text_field :precio, :class => "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :area, "Área metros cuadrados:" %>
-    <%= form.number_field :area, :class => "form-control" %>
+    <%= f.label :area, "Área metros cuadrados:" %>
+    <%= f.number_field :area, :class => "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :numdormitorio, "Número de dormitorio:" %>
-    <%= form.number_field :numdormitorio, :class => "form-control" %>
+    <%= f.label :numdormitorio, "Número de dormitorio:" %>
+    <%= f.number_field :numdormitorio, :class => "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :numdormitorio, "Código de Proyecto:" %>
-    <%= form.number_field :proyecto_id, :class => "form-control" %>
+    <%= f.label :proyecto, "Proyecto:" %>
+    <%= f.object.proyecto.nombre %>
   </div>
 
   <div class="actions">
-    <%= form.submit :class => "btn btn-info"  %>
+    <%= f.submit "Guardar departamento", :class => "btn btn-info"  %>
   </div>
-<% end %>
+
+

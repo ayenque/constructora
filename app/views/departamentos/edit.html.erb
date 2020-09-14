@@ -1,4 +1,9 @@
-<h1>Editing Departamento</h1>
+<h1>Editar Departamento</h1>
+
+<%= form_for(@departamento, :url => departamento_path(:proyecto_id => @proyecto.id)) do |f| %>
+
+	
+	<%= render( :partial => "form", :locals => { :f => f }) %>
 
 <%= render 'form', departamento: @departamento %>
 

@@ -1,0 +1,48 @@
+<%= form_with(model: citation, local: true) do |form| %>
+  <% if citation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(citation.errors.count, "error") %> prohibited this citation from being saved:</h2>
+
+      <ul>
+        <% citation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :DNI , "DNI" %>
+    <%= form.text_field :dni, { :class => "form-control", :placeholder => "Ingrese sus DNI" } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Nombres %>
+    <%= form.text_field :nombre, { :class => "form-control", :placeholder => "Ingrese sus nombres" } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Apellidos %>
+    <%= form.text_field :apellido, { :class => "form-control", :placeholder => "Ingrese sus apellidos" } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Email %>
+    <%= form.email_field :email, { :class => "form-control", :placeholder => "Ingrese su email" } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Telefono %>
+    <%= form.text_field :telefono, { :class => "form-control", :placeholder => "Ingrese su telefono" } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fechacita , "Fecha de cita" %>
+    <br>
+    <%= form.date_select :fechacita, { :class => "form-control", :placeholder => "Ingrese una fecha para su cita" } %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Enviar Datos", :class => "btn btn-success" %>
+  </div>
+<% end %>

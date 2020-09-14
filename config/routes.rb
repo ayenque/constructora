@@ -1,27 +1,35 @@
 Rails.application.routes.draw do
+
   resources :departamentos
+
+  	resources :citations do
+  		member do
+			get :delete
+  		end
+	end
+
+
 	resources :proyectos
-	resources :cita
 	resources :alumnos
 	get 'home/index'
 
-	get 'cita/showcita'
+
+
 	get 'static/aboutus'
 	get 'static/contactus'
 	get 'static/proyectos'
 	get 'static/faq'
-
 	get 'static/admUsuarios'
 	get 'static/registroVta'
 	get 'static/reporteDptos'
+
 	get 'static/busquedacitas'
 	get 'static/proforma'
 	get 'static/separardepartamento'
-
 	get 'static/detalledepartamento'
 	get 'static/solicitarcita'
-
 	get 'static/departamentos'
+
 
 	root 'home#index'
 

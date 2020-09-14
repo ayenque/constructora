@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>DNI:</strong>
+  <%= @citation.dni %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @citation.nombre %>
+</p>
+
+<p>
+  <strong>Apellido:</strong>
+  <%= @citation.apellido %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @citation.email %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @citation.telefono %>
+</p>
+
+<p>
+  <strong>Fecha Cita:</strong>
+  <%= @citation.fechacita %>
+</p>
+
+<%= link_to 'Editar', edit_citation_path(@citation) %> |
+<%= link_to 'Atrás', citations_path %>

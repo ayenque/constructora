@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Información del Usuario</h1>
+
+<br/>
+
+<h2>
+  <strong>DNI: </strong>
+  <%= @usuario.dni %>
+</h2>
+
+<h2>
+  <strong>Nombres: </strong>
+  <%= @usuario.nombres %>
+</h2>
+
+<h2>
+  <strong>Apellidos: </strong>
+  <%= @usuario.apellidos %>
+</h2>
+
+<h2>
+  <strong>Perfil: </strong>
+  <%= @usuario.perfil %>
+</h2>
+
+<br/>
+
+<%= link_to 'Editar', edit_usuario_path(@usuario) , :class => "btn btn-primary" %>   
+<%= link_to 'Back', usuarios_path , :class => "btn btn-secondary" %>

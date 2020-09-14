@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :usuarios
   	resources :cita
   	resources :alumnos
   	get 'home/index'
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
 	get 'static/services'
 	get 'static/faq'
 
-	get 'static/admUsuarios'
+	get 'usuarios/index'
 	get 'static/registroVta'
 	get 'static/reporteDptos'
 	get 'static/busquedacitas'

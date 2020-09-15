@@ -21,6 +21,17 @@ class DepartamentosController < ApplicationController
     
   end
 
+  
+  def listaproyectos
+     #obtener el  Proyecto con el id recibido
+     @proyecto = Proyecto.find(params[:proyecto_id])
+     #buscar los departamentos del author
+     @departamentos = @proyecto.departamentos
+     
+     #@departamentos = Departamento.all
+    
+  end
+
   # GET /departamentos/new
   def new
     @departamento = Departamento.new(:proyecto_id => @proyecto.id)

@@ -7,6 +7,13 @@ class ProyectosController < ApplicationController
     @proyectos = Proyecto.all
   end
 
+
+  def listaproyectos
+    @proyectos = Proyecto.all
+  end
+
+
+
   # GET /proyectos/1
   # GET /proyectos/1.json
   def show

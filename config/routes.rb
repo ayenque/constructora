@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 	resources :proyectos do
 		member do
 			get :delete
+			get 'listaproyectos'
 		end
    end
 

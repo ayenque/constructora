@@ -17,6 +17,11 @@ class StaticController < ApplicationController
 	def departamentos
 	end
 
+	def proforma
+
+
+	end
+
 	#Mi metodo Post
 	def mimetodo
         puts "------- Datos enviados por el formulario -------------"
@@ -24,6 +29,7 @@ class StaticController < ApplicationController
         p1 = params[:upc][:name]
         p2 = params[:upc][:lastname]
         p3 = params[:upc][:email]
+        p4 = params[:upc][:prueba]
 
         puts "El valor del campo nombre es: #{p1}"
         puts "El valor del campo apellido es: #{p2}"

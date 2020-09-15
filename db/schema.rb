@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2020_09_14_013350) do
 
   create_table "alumnos", force: :cascade do |t|
@@ -32,7 +31,6 @@ ActiveRecord::Schema.define(version: 2020_09_14_013350) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-
 
   create_table "citations", force: :cascade do |t|
     t.string "dni"
@@ -58,6 +56,10 @@ ActiveRecord::Schema.define(version: 2020_09_14_013350) do
     t.integer "proyecto_id"
   end
 
+  create_table "perfils", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "proyectos", force: :cascade do |t|
     t.string "nombre"
     t.text "descripcion"
@@ -65,6 +67,15 @@ ActiveRecord::Schema.define(version: 2020_09_14_013350) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "avatar"
+  end
+
+  create_table "usuarios", force: :cascade do |t|
+    t.string "dni"
+    t.string "nombres"
+    t.string "apellidos"
+    t.string "perfil"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

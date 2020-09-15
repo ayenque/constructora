@@ -1,6 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Información del Usuario</h1>
+    <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single">Usuario Creado</h1>
+              <span class="color-text-a">Por favor revise los datos del usuario</span>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <%= link_to 'Editar', edit_usuario_path(@usuario) , :class => "btn btn-light" %>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  <%= link_to 'Atrás', usuarios_path , :class => "btn btn-light" %>
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
 
 <br/>
 
@@ -26,5 +49,5 @@
 
 <br/>
 
-<%= link_to 'Editar', edit_usuario_path(@usuario) , :class => "btn btn-primary" %>   
-<%= link_to 'Back', usuarios_path , :class => "btn btn-secondary" %>
+   
+

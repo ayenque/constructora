@@ -13,8 +13,6 @@
 
 ActiveRecord::Schema.define(version: 2020_09_13_234807) do
 
-ActiveRecord::Schema.define(version: 2020_09_13_214436) do
-
 
   create_table "alumnos", force: :cascade do |t|
     t.string "nombres"

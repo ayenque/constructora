@@ -14,21 +14,35 @@
 
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
-              <h1 class="title-single">Cita enviada</h1>
-              <span class="color-text-a">Un asesor lo estará contactando pronto. </span>
+              <h1 class="title-single">Detalle de cita</h1>
+              <span class="color-text-a">Estado de cita: <b>Pendiente<b> </span>
             </div>
           </div>
+
+           <div class="col-md-12 col-lg-12">
+            <div class="info-agents color-a">
+               <%= link_to 'Editar', edit_citation_path(@citation) %> | <%= link_to 'Citas', citations_path %>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
       </div>
     </div>
   </div> 
+
+
+
+    
+
+
+
+<br>
 <div class="col-md-5 section-md-t3">
                 <div class="agent-info-box">
                   <div class="agent-title">
                     <div class="title-box-d">
-                    <h5>Sus datos:</h5><br>
                       <h3 class="title-d"><%= @citation.nombre %> <%= @citation.apellido %></h3>
                     </div>
                   </div>
@@ -62,5 +76,3 @@
                 </div>
               </div>
 
-
-<%= link_to 'Ver más proyectos', "/", :class => "btn btn-light"  %>

@@ -58,8 +58,8 @@
         <div class="field">
           <%= form.label :fechacita , "Fecha de cita" %>
           <br>
-           <%= form.date_select :fechacita, { :class => "form-control form-control-lg form-control-a", :placeholder => "Ingrese una fecha para su cita" } %>
-        </div>
+           <%= form.date_field :fechacita, :id => "datepicker" %>
+           </div>
     </div>
   </div>
 
@@ -75,8 +75,13 @@
 </div>
 
 
-
   <div class="actions">
     <%= form.submit "Enviar Datos", :class => "btn btn-success btn-lg" %>
   </div>
+
+
 <% end %>
+
+<script>
+$("#datepicker").datepicker({format: "dd/mm/yyyy"});
+</script>

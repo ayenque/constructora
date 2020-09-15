@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   	resources :citations do
   		member do
 			get :delete
+			get :show_user
   		end
 	end
 

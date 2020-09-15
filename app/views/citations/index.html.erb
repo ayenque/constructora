@@ -1,6 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Citas</h1>
+    <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single">Listado de Citas</h1>
+              <span class="color-text-a">...</span>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="/">Citas</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  <a href="/">Lista de Citas</a>
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
 
 <table class="table table-hover table-bordered">
   <thead>
@@ -52,16 +75,49 @@
           </div>
 
         </td>
-        <td><%= link_to 'Mostrar', citation %></td>
-        <td><%= link_to 'Editar', edit_citation_path(citation) %></td>
-        <td><%= link_to 'Eliminar', citation, method: :delete, data: { confirm: 'Estas seguro de eliminar la cita?' } %></td>
+        <td><%= link_to '', show_user_citation_path(citation) , class: "fa fa-info-circle" %></td> 
+        <td><%= link_to '', edit_citation_path(citation) , class: "fa fa-pencil-square-o" %></td>
+        <td><%= link_to '', citation, method: :delete, data: { confirm: 'Estas seguro de eliminar la cita?' }, class: "fa fa-trash" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+
+<!-- 
+
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">
+  
+</button>
+
+
+<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter2Title" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModal2LongTitle">Eliminar Cita</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Estas seguro de eliminar la cita?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+
 <br>
 
-<%= link_to 'Nueva Cita', new_citation_path %>
+
+
+
+<%= link_to 'Nueva Cita', new_citation_path , :class => "btn btn-light" %>
 
 

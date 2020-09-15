@@ -10,6 +10,21 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ *= require_tree .  
  *= require_self
+
+ *= require bootstrap-datepicker
+ # Or if using bootstrap v3:
+ *= require bootstrap-datepicker3
+ *= require bootstrap-datepicker
+
  */
+
+
+
+ /*!
+ *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+/* FONT PATH
+ * -------------------------- */

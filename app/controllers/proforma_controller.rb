@@ -1,0 +1,2 @@
+class ProformaController < ApplicationController
+end

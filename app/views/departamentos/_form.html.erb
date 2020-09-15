@@ -1,4 +1,14 @@
 
+ 
+  <div class="actions" align="center">
+    <%= f.submit "Guardar departamento", :class => "btn btn-info"  %>
+  </div>
+  
+  <div class="field">
+    <h3><%= f.label :proyecto, "Proyecto:" %>
+    <strong><%= f.object.proyecto.nombre %></strong></h3>
+  </div>
+  
 
   <div class="field">
     <%= f.label :numdpto, "Número de departamento:"  %>
@@ -11,7 +21,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :descripcion, "Características:" %>
+    <%= f.label :descripcion, "Características Generales:" %>
     <%= f.text_area :descripcion, { :class => "form-control", :rows => "6" } %>
   </div>
 
@@ -30,12 +40,8 @@
     <%= f.number_field :numdormitorio, :class => "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :proyecto, "Proyecto:" %>
-    <%= f.object.proyecto.nombre %>
-  </div>
-
-  <div class="actions">
+ 
+  <div class="actions" align="center">
     <%= f.submit "Guardar departamento", :class => "btn btn-info"  %>
   </div>
 

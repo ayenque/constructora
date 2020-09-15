@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+
     <section class="intro-single">
       <div class="container">
         <div class="row">
@@ -13,10 +14,10 @@
             <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                  <a href="/">Citas</a>
+                  <a href="/">Inicio</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                  <a href="/">Lista de Citas</a>
+                  <%= link_to 'Nueva Cita', new_citation_path , :class => "btn btn-light" %>
                 </li>
               </ol>
             </nav>
@@ -24,6 +25,8 @@
         </div>
       </div>
     </section>
+
+
 
 <table class="table table-hover table-bordered">
   <thead>
@@ -113,11 +116,10 @@
 </div>
 -->
 
-<br>
 
 
 
 
-<%= link_to 'Nueva Cita', new_citation_path , :class => "btn btn-light" %>
+
 
 

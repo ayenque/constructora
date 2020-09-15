@@ -21,11 +21,13 @@
     <%= form.text_area :descripcion, {:class => "form-control", :rows => "5"} %>
   </div>
 
+  <!--
   <div class="field">
     <%= form.label :foto, "Ruta de imagen:" %>
     <%= form.text_field :foto, :class => "form-control" %>
   </div>
-
+  -->
+  
   <div class="form-group">
     <%= form.label :avatar, "Imagen:" %>
     <%= image_tag(@proyecto.avatar.url, style: 'height:auto;width:300px', alt: 'Avatar') if @proyecto.avatar? %><br>

@@ -1,6 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Proyectos</h1>
+
+    <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single">Listado de Proyectos</h1>
+              <span class="color-text-a">...</span>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <%= link_to 'Proyectos', proyectos_path, :class=> "btn btn-warning" %>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  <%= link_to 'Nuevo Proyecto', new_proyecto_path, :class=> "btn btn-warning" %>
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
 <table class="table">
   <thead>
@@ -17,8 +42,8 @@
       <tr>
         <td><%= proyecto.nombre %></td>
         <td><%= proyecto.descripcion %></td>
-        <td><%= proyecto.foto %></td>
-        <td><%= link_to("Ver departamentos", departamentos_path(:proyecto_id => proyecto.id), :class => "btn btn-outline-info btn-sm") %></td>
+        <td><%= proyecto.avatar_identifier %></td>
+        <td><%= link_to("Ver departamentos",  departamentos_path(:proyecto_id => proyecto.id), :class => "btn btn-outline-info btn-sm") %></td>
         <td><%= link_to 'Mostrar', proyecto %></td>
         <td><%= link_to 'Editar', edit_proyecto_path(proyecto) %></td>
         <td><%= link_to 'Eliminar', proyecto, method: :delete, data: { confirm: 'Está seguro?' } %></td>
@@ -27,7 +52,7 @@
   </tbody>
 </table>
   
-<%= link_to 'Nuevo Proyecto', new_proyecto_path, :class=> "btn btn-warning" %>
+
 <hr>
 <!-- primero queremos dividirlo en 3 para saber cuantas veces se crea -->
 <% n = @proyectos.count/3 %>

@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
-  resources :usuarios
-  	resources :cita
+    resources :usuarios
+
   	resources :alumnos
   	get 'home/index'
   	
-	get 'cita/showcita'
 
-  resources :departamentos
+
+  resources :departamentos do
+    member do
+		get :delete
+	  end
+   end
 
   	resources :citations do
   		member do
@@ -16,7 +20,13 @@ Rails.application.routes.draw do
 	end
 
 
-	resources :proyectos
+	resources :proyectos do
+		member do
+			get :delete
+		end
+   end
+
+
 	resources :alumnos
 	get 'home/index'
 

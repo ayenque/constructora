@@ -2,10 +2,11 @@
 
 <%= form_for(@departamento, :url => departamento_path(:proyecto_id => @proyecto.id)) do |f| %>
 
-	
 	<%= render( :partial => "form", :locals => { :f => f }) %>
 
-<%= render 'form', departamento: @departamento %>
+<% end %>
 
-<%= link_to 'Mostrar', @departamento, :class => "btn btn-warning" %> |
-<%= link_to 'Atrás', departamentos_path, :class => "btn btn-warning" %>
+<%= link_to 'Mostrar', departamentos_path(@departamento,:proyecto_id => @proyecto.id), :class => "btn btn-warning" %>
+
+<%= link_to 'Atrás', departamentos_path(@departamento,:proyecto_id => @proyecto.id), :class => "btn btn-warning" %>
+

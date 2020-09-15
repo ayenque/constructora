@@ -93,9 +93,10 @@ class DepartamentosController < ApplicationController
   # DELETE /departamentos/1
   # DELETE /departamentos/1.json
   def destroy
+    @departamento = Departamento.find(params[:id])
     @departamento.destroy
     respond_to do |format|
-      format.html { redirect_to departamentos_url, notice: 'Departamento was successfully destroyed.' }
+      format.html { redirect_to(departamentos_path(:proyecto_id => @proyecto.id), notice: 'Departamento was successfully destroyed.') }
       format.json { head :no_content }
     end
   end
@@ -112,6 +113,6 @@ class DepartamentosController < ApplicationController
     end
 
     def find_proyecto
-    @proyecto = Proyecto.find(params[:proyecto_id])
-  end
+      @proyecto = Proyecto.find(params[:proyecto_id])
+    end
 end

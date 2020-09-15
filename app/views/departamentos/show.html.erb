@@ -1,8 +1,39 @@
 <%= link_to("<< Volver a Departamentos", departamentos_path(:proyecto_id => @proyecto.id)) %>
 <p id="notice"><%= notice %></p>
 
+
+  <!-- ======= Intro Single ======= -->
+    <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single">Departamento : <%= @departamento.numdpto %></h1>
+              <span class="color-text-a"><%= @departamento.descripcion %></span>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="/">Inicio</a>
+                </li>
+                <li class="breadcrumb-item">
+                  <%= link_to 'Departamentos', departamentos_path %>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Dpto. <%= @departamento.numdpto %>
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Intro Single-->
+
+
 <p>
-  <strong>Numdpto:</strong>
+  <strong>Numero Dpto.:</strong>
   <%= @departamento.numdpto %>
 </p>
 
@@ -27,14 +58,14 @@
 </p>
 
 <p>
-  <strong>Numdormitorio:</strong>
+  <strong>Dormitorios:</strong>
   <%= @departamento.numdormitorio %>
 </p>
 
+<!--
 <p>
   <strong>Proyecto:</strong>
   <%= @departamento.proyecto.nombre %>
 </p>
-
-<%= link_to 'Editar', edit_departamento_path(@departamento), :classc => "btn btn-warning" %> |
-<%= link_to 'Atrás', departamentos_path, :class => "btn btn-warning" %>
+-->
+<%= link_to 'Editar', edit_departamento_path(@departamento,:proyecto_id => @proyecto.id), :classc => "btn btn-warning" %> 

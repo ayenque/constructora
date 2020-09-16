@@ -126,7 +126,7 @@
 
             <div class="mb-3">
               <label for="email">Email <span class="text-muted">(Opcional)</span></label>
-              <input type="email" class="form-control" id="email" placeholder="tucorreo@ejemplo.com">
+              <input type="email" class="form-control" id="email" placeholder="tucorreo@homeagency.com.pe">
               <div class="invalid-feedback">
                 Ingrese un correo electrónico válido.
               </div>
@@ -134,7 +134,7 @@
 
             <div class="mb-3">
               <label for="address">Número de Contacto Telefónico</label>
-              <input type="text" class="form-control" id="numeroContacto" placeholder="987654321" required>
+              <input type="number" class="form-control" id="numeroContacto" placeholder="987654321" required>
               <div class="invalid-feedback">
                 Ingrese un número de contacto.
               </div>
@@ -183,11 +183,11 @@
             <hr class="mb-4">
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="same-address">
-              <label class="custom-control-label" for="same-address">Enviar una copia de la proforma a la dirección electrónica correspondiente.</label>
+              <label class="custom-control-label" for="same-address">Enviar una copia de la proforma a la dirección electrónica ingresada en el formulario.</label>
             </div>
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="save-info">
-              <label class="custom-control-label" for="save-info">Guardar información del cliente.</label>
+              <label class="custom-control-label" for="save-info">El cliente acepta que la empresa guarde su información bajo su responsabilidad.</label>
             </div>
             <hr class="mb-4">
 
@@ -196,7 +196,7 @@
               </div>
             </div>
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Generar Proforma</button>
+            <button class="btn btn-success btn-lg btn-block" type="submit">Generar Proforma</button>
           </form>
         </div>
       </div>

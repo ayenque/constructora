@@ -10,13 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_14_013350) do
+ActiveRecord::Schema.define(version: 2020_09_16_015032) do
 
   create_table "alumnos", force: :cascade do |t|
     t.string "nombres"
     t.string "dni"
     t.string "email"
     t.integer "edad"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "bloqueos", force: :cascade do |t|
+    t.string "nombres"
+    t.string "apellidos"
+    t.string "dni"
+    t.integer "proyecto"
+    t.integer "departamento"
+    t.string "voucher"
+    t.string "tipo"
+    t.string "de"
+    t.string "moneda"
+    t.integer "monto"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

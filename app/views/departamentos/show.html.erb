@@ -2,70 +2,76 @@
 <p id="notice"><%= notice %></p>
 
 
-  <!-- ======= Intro Single ======= -->
-    <section class="intro-single">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 col-lg-8">
-            <div class="title-single-box">
-              <h1 class="title-single">Departamento : <%= @departamento.numdpto %></h1>
-              <span class="color-text-a"><%= @departamento.descripcion %></span>
-            </div>
-          </div>
-          <div class="col-md-12 col-lg-4">
-            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                  <a href="/">Inicio</a>
-                </li>
-                <li class="breadcrumb-item">
-                  <%= link_to 'Departamentos', departamentos_path %>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">
-                  Dpto. <%= @departamento.numdpto %>
-                </li>
-              </ol>
-            </nav>
-          </div>
+<!-- ======= Intro Single ======= -->
+<section class="intro-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8">
+        <div class="title-single-box">
+          <h1 class="title-single">Departamento : <%= @departamento.numdpto %></h1>
+          <span class="color-text-a"><%= @departamento.descripcion %></span>
         </div>
       </div>
-    </section><!-- End Intro Single-->
+      <div class="col-md-12 col-lg-4">
+        <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+          <ol class="breadcrumb">
+            
+            <li class="breadcrumb-item">
+              <%= link_to 'Atrás', departamentos_path(@departamento,:proyecto_id => @proyecto.id), :class => "btn btn-warning" %>
+            </li>
+            
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section><!-- End Intro Single-->
 
 
-<p>
-  <strong>Numero Dpto.:</strong>
-  <%= @departamento.numdpto %>
-</p>
+<table summary="Section form fields" class="table">
 
-<p>
-  <strong>Piso:</strong>
-  <%= @departamento.piso %>
-</p>
+  <tr>
+    <th>Numero Dpto:</th>
+    <td><%= @departamento.numdpto %></td>
+  </tr>
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @departamento.descripcion %>
-</p>
+  <tr>
+    <th>Piso: </th>
+    <td><%= @departamento.piso %></td>
+  </tr>
 
-<p>
-  <strong>Precio:</strong>
-  <%= @departamento.precio %>
-</p>
+  <tr>
+    <th>Descripcion:</th>
+    <td><%= @departamento.descripcion %></td>
+  </tr>
 
-<p>
-  <strong>Area:</strong>
-  <%= @departamento.area %>
-</p>
+  <tr>
+    <th>Precio:</th>
+    <td><%= @departamento.precio %></td>
+  </tr>
 
-<p>
-  <strong>Dormitorios:</strong>
-  <%= @departamento.numdormitorio %>
-</p>
+  <tr>
+    <th>Area:</th>
+    <td><%= @departamento.area %></td>
+  </tr>
 
-<!--
-<p>
-  <strong>Proyecto:</strong>
-  <%= @departamento.proyecto.nombre %>
-</p>
--->
-<%= link_to 'Editar', edit_departamento_path(@departamento,:proyecto_id => @proyecto.id), :classc => "btn btn-warning" %> 
+  <tr>
+    <th>Dormitorios:</th>
+    <td><%= @departamento.numdormitorio %></td>
+  </tr>
+
+  <tr>
+    <th>Ruta de imagen:</th>
+    <td>/<%= @departamento.foto_identifier %></td>
+  </tr>
+
+  <tr>
+    <th>Imagen del Proyecto:</th>
+    <td>
+      <%= image_tag(@departamento.foto.url, style: 'height:auto;width:500px;', alt: 'Foto') if @departamento.foto? %><br>
+    </td>
+  </tr>
+
+</table>
+
+<%= link_to 'Editar departamento', edit_departamento_path(@departamento,:proyecto_id => @proyecto.id) %> 

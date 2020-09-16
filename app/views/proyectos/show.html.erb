@@ -36,11 +36,15 @@
 		<th>Descripcion:</th>
 		<td><%= @proyecto.descripcion %></td>
 	</tr>
+  <tr>
+    <th>Distrito:</th>
+    <td><%= @proyecto.distrito %></td>
+  </tr>
 	<tr>
-		<th>Ruta avatar:</th>
-		<td><%= @proyecto.foto %></td>
+		<th>Ruta de imagen:</th>
+		<td>/<%= @proyecto.avatar_identifier %></td>
 	</tr>
-</table>
+
 	<tr>
 		<th>Imagen del Proyecto:</th>
 		<td>
@@ -48,5 +52,5 @@
 		                style: 'height:auto;width:500px;', alt: 'Avatar') if @proyecto.avatar? %><br>
 		</td>
 	</tr>
-
+</table>
 

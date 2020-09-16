@@ -6,20 +6,18 @@
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
               <h1 class="title-single">Proyectos</h1>
-              <span class="color-text-a">A continuación le presentamos la lista de nuestros proyectos ...</span>
+              <span class="color-text-a">A continuación le presentamos la lista de nuestros proyectos</span>
             </div>
           </div>
           <div class="col-md-12 col-lg-4">
             <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
               <ol class="breadcrumb">
+                
                 <li class="breadcrumb-item">
-                  <%= link_to 'Proyectos', proyectos_path %>
-                </li>
-                <li class="breadcrumb-item">
-                  <%= link_to 'Lista Proyectos', listaproyectos_proyecto_path(@proyectos) %>
+                  <%= link_to 'Lista Proyectos', listaproyectos_proyecto_path(@proyectos), :class => "btn btn-warning" %>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                  <%= link_to 'Nuevo Proyecto', new_proyecto_path%>
+                  <%= link_to 'Nuevo Proyecto', new_proyecto_path, :class => "btn btn-warning" %>
                 </li>
               </ol>
             </nav>
@@ -27,9 +25,6 @@
         </div>
       </div>
     </section>
-
-
-
 
 <hr>
 <!-- primero queremos dividirlo en 3 para saber cuantas veces se crea -->
@@ -48,11 +43,12 @@
       <% proyectos = @proyectos[count] %>
       <!-- Utilizamos el proyectos -->
       <div class="card">
-        <%= image_tag(proyectos.avatar.url, style: 'height:400px;width:370px;', alt: 'Avatar') if proyectos.avatar? %><br>
+        <%= image_tag(proyectos.avatar.url, style: 'height:400px;width:370px;', alt: 'Avatar') if proyectos.avatar? %>
         <div class="card-body">
-          <h5 class="card-title"><%= proyectos.nombre %></h5>
+          <h4 class="card-title"><%= proyectos.nombre %></h5>
+          <h5 class="card-text">Distrito: <%= proyectos.distrito %></p>
           <p class="card-text"><%= proyectos.descripcion %></p>
-          <%= link_to("Ver Departamentos",  departamentos_path(:proyecto_id => proyectos.id), :class => "btn btn-success") %>
+          <%= link_to("Ver Departamentos",  departamentos_path(:proyecto_id => proyectos.id), :class => "btn btn-outline-success active") %>
         </div>
       </div>
       <!-- Aumentamos la posición para que en la siguiente utilice el siguiente proyectos -->

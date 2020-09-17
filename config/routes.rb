@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   end
 
 
+  resources :contactos
   resources :bloqueos
-    resources :usuarios
+  resources :usuarios
 
   	resources :alumnos
   	get 'home/index'

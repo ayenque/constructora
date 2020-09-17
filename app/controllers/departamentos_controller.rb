@@ -122,7 +122,7 @@ class DepartamentosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def departamento_params
-      params.require(:departamento).permit(:numdpto, :piso, :descripcion, :precio, :area, :numdormitorio, :proyecto_id)
+      params.require(:departamento).permit(:numdpto, :piso, :descripcion, :precio, :area, :numdormitorio, :foto, :proyecto_id)
     end
 
     def find_proyecto

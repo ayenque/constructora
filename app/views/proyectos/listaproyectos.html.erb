@@ -31,6 +31,7 @@
     <tr>
       <th>Nombre</th>
       <th>Descripcion</th>
+      <th>Distrito</th>
       <th>Ruta de imagen</th>
       <th colspan="4"></th>
     </tr>
@@ -41,8 +42,9 @@
       <tr>
         <td><%= proyecto.nombre %></td>
         <td><%= proyecto.descripcion %></td>
-        <td><%= proyecto.avatar_identifier %></td>
-        <td><%= link_to("Ver departamentos",  departamentos_path(:proyecto_id => proyecto.id), :class => "btn btn-outline-info btn-sm") %></td>
+        <td><%= proyecto.distrito %></td>
+        <td>/<%= proyecto.avatar_identifier %></td>
+        <td><%= link_to("Ver departamentos",  departamentos_path(:proyecto_id => proyecto.id), :class => "btn btn-outline-info btn-sm active") %></td>
         <td><%= link_to 'Mostrar', proyecto %></td>
         <td><%= link_to 'Editar', edit_proyecto_path(proyecto) %></td>
         <td><%= link_to 'Eliminar', proyecto, method: :delete, data: { confirm: 'Está seguro?' } %></td>

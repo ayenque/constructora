@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
 
 
+  resources :bloqueos
     resources :usuarios
 
   	resources :alumnos

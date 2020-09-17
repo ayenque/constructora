@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_16_015032) do
+ActiveRecord::Schema.define(version: 2020_09_16_020854) do
 
   create_table "alumnos", force: :cascade do |t|
     t.string "nombres"
@@ -29,8 +29,6 @@ ActiveRecord::Schema.define(version: 2020_09_16_015032) do
     t.integer "departamento"
     t.string "voucher"
     t.string "tipo"
-    t.string "de"
-    t.string "moneda"
     t.integer "monto"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

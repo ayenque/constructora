@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_14_013350) do
+ActiveRecord::Schema.define(version: 2020_09_16_020854) do
 
   create_table "alumnos", force: :cascade do |t|
     t.string "nombres"
@@ -56,6 +56,30 @@ ActiveRecord::Schema.define(version: 2020_09_14_013350) do
     t.integer "proyecto_id"
   end
 
+  create_table "detalle_departamentos", force: :cascade do |t|
+    t.integer "supTotal"
+    t.integer "supTechada"
+    t.integer "banios"
+    t.integer "estacionamiento"
+    t.integer "banioServicio"
+    t.boolean "closet"
+    t.boolean "recepcion"
+    t.boolean "condominio"
+    t.boolean "centroComercial"
+    t.boolean "cercaColegio"
+    t.boolean "parque"
+    t.boolean "intercomunicador"
+    t.integer "ascensores"
+    t.integer "ambientes"
+    t.string "descambientes"
+    t.string "ubicacion"
+    t.integer "departamento_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "fotos"
+    t.index ["departamento_id"], name: "index_detalle_departamentos_on_departamento_id"
+  end
+
   create_table "perfils", force: :cascade do |t|
     t.string "name"
   end
@@ -78,4 +102,5 @@ ActiveRecord::Schema.define(version: 2020_09_14_013350) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "detalle_departamentos", "departamentos"
 end

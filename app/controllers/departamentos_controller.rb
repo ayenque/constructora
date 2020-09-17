@@ -38,6 +38,8 @@ class DepartamentosController < ApplicationController
     #@departamento = Departamento.new
   end
 
+
+  
   def create
     #@author = Author.find(params[:author_id])
     @departamento = Departamento.create(departamento_params)

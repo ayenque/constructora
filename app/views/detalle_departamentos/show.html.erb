@@ -1,0 +1,120 @@
+<p id="notice"><%= notice %></p>
+  <!-- ======= Intro Single ======= -->
+    <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single">Departamento : <%= @departamento.numdpto %></h1>
+              <span class="color-text-a"><%= @departamento.descripcion %></span>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="/">Inicio</a>
+                </li>
+                <li class="breadcrumb-item">
+                  <%= link_to 'Detalle departamentos', detalle_departamentos_path %>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Dpto. <%= @departamento.numdpto %>
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Intro Single-->
+
+
+<%= link_to 'Editar', edit_detalle_departamento_path(@detalle_departamento,:departamento_id => @departamento.id), :class => "btn btn-warning" %> 
+
+
+
+
+<p>
+  <strong>Suptotal:</strong>
+  <%= @detalle_departamento.supTotal %>
+</p>
+
+<p>
+  <strong>Suptechada:</strong>
+  <%= @detalle_departamento.supTechada %>
+</p>
+
+<p>
+  <strong>Banios:</strong>
+  <%= @detalle_departamento.banios %>
+</p>
+
+<p>
+  <strong>Estacionamiento:</strong>
+  <%= @detalle_departamento.estacionamiento %>
+</p>
+
+<p>
+  <strong>Banioservicio:</strong>
+  <%= @detalle_departamento.banioServicio %>
+</p>
+
+<p>
+  <strong>Closet:</strong>
+  <%= @detalle_departamento.closet %>
+</p>
+
+<p>
+  <strong>Recepcion:</strong>
+  <%= @detalle_departamento.recepcion %>
+</p>
+
+<p>
+  <strong>Condominio:</strong>
+  <%= @detalle_departamento.condominio %>
+</p>
+
+<p>
+  <strong>Centrocomercial:</strong>
+  <%= @detalle_departamento.centroComercial %>
+</p>
+
+<p>
+  <strong>Cercacolegio:</strong>
+  <%= @detalle_departamento.cercaColegio %>
+</p>
+
+<p>
+  <strong>Parque:</strong>
+  <%= @detalle_departamento.parque %>
+</p>
+
+<p>
+  <strong>Intercomunicador:</strong>
+  <%= @detalle_departamento.intercomunicador %>
+</p>
+
+<p>
+  <strong>Ascensores:</strong>
+  <%= @detalle_departamento.ascensores %>
+</p>
+
+<p>
+  <strong>Ambientes:</strong>
+  <%= @detalle_departamento.ambientes %>
+</p>
+
+<p>
+  <strong>Descambientes:</strong>
+  <%= @detalle_departamento.descambientes %>
+</p>
+
+<p>
+  <strong>Ubicacion:</strong>
+  <%= @detalle_departamento.ubicacion %>
+</p>
+
+<p>
+  <strong>Departamento:</strong>
+  <%= @detalle_departamento.departamento_id %>
+</p>

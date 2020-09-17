@@ -1,0 +1,101 @@
+ 
+ <div class="actions" align="center">
+    <%= f.submit "Guardar Detalles", :class => "btn btn-info"  %>
+  </div>  
+
+  <div class="field">
+    <h3><%= f.label :departamento, "Departamento:" %>
+    <strong><%= f.object.departamento.numdpto %></strong></h3>
+  </div>
+
+  <% @detalle_departamento.fotos.each do |foto| %>
+   <%= hidden_field :@detalle_departamento, :fotos, multiple: true, value: foto.identifier %>
+  <% end %>
+  <%= f.file_field :fotos, multiple: true %>
+
+
+
+  <div class="field">
+    <%= f.label :supTotal %>
+    <%= f.number_field :supTotal %>
+  </div>
+
+  <div class="field">
+    <%= f.label :supTechada %>
+    <%= f.number_field :supTechada %>
+  </div>
+
+  <div class="field">
+    <%= f.label :banios %>
+    <%= f.number_field :banios %>
+  </div>
+
+  <div class="field">
+    <%= f.label :estacionamiento %>
+    <%= f.number_field :estacionamiento %>
+  </div>
+
+  <div class="field">
+    <%= f.label :banioServicio %>
+    <%= f.number_field :banioServicio %>
+  </div>
+
+  <div class="field">
+    <%= f.label :closet %>
+    <%= f.check_box :closet %>
+  </div>
+
+  <div class="field">
+    <%= f.label :recepcion %>
+    <%= f.check_box :recepcion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :condominio %>
+    <%= f.check_box :condominio %>
+  </div>
+
+  <div class="field">
+    <%= f.label :centroComercial %>
+    <%= f.check_box :centroComercial %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cercaColegio %>
+    <%= f.check_box :cercaColegio %>
+  </div>
+
+  <div class="field">
+    <%= f.label :parque %>
+    <%= f.check_box :parque %>
+  </div>
+
+  <div class="field">
+    <%= f.label :intercomunicador %>
+    <%= f.check_box :intercomunicador %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ascensores %>
+    <%= f.number_field :ascensores %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ambientes %>
+    <%= f.number_field :ambientes %>
+  </div>
+
+  <div class="field">
+    <%= f.label :descambientes %>
+    <%= f.text_field :descambientes %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ubicacion %>
+    <%= f.text_field :ubicacion %>
+  </div>
+
+
+   <div class="actions" align="center">
+    <%= f.submit "Guardar Detalles", :class => "btn btn-info"  %>
+  </div>  

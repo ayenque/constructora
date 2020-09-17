@@ -37,6 +37,7 @@
       <th>Area</th>
       <th>Dormitorios</th>
       <!--<th>Proyecto</th>-->
+      <th>Detalle Departamento</th>
       <th colspan="3"> </th>
     </tr>
   </thead>
@@ -50,6 +51,7 @@
         <td><%= departamento.precio %></td>
         <td><%= departamento.area %></td>
         <td><%= departamento.numdormitorio %></td>
+        <td><%= link_to("Ver detalles",  detalle_departamentos_path(:departamento_id => departamento.id), :class => "btn btn-outline-info btn-sm") %></td>
         <td><%#= departamento.proyecto.nombre %></td>
         <td><%= link_to('Mostrar', departamento_path(departamento,:proyecto_id => @proyecto.id)) %></td>
      

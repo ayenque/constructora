@@ -1,0 +1,90 @@
+<p id="notice"><%= notice %></p>
+
+    <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single">Detalle Departamento</h1>
+              <h4><span class="color-text-a">Departamento N°: <%= @departamento.numdpto %> - Piso: <%= @departamento.piso %> </span></h4>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <%= link_to 'Departamento', '../', :class => "btn btn-warning" %>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  <%= link_to('Agregar', new_detalle_departamento_path(:departamento_id => @departamento.id), :class => "btn btn-warning" )  %>
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<table>
+  <thead>
+    <tr>
+      <th>Suptotal</th>
+      <th>Suptechada</th>
+      <th>Banios</th>
+      <th>Estacionamiento</th>
+      <th>Banioservicio</th>
+      <th>Closet</th>
+      <th>Recepcion</th>
+      <th>Condominio</th>
+      <th>Centrocomercial</th>
+      <th>Cercacolegio</th>
+      <th>Parque</th>
+      <th>Intercomunicador</th>
+      <th>Ascensores</th>
+      <th>Ambientes</th>
+      <th>Descambientes</th>
+      <th>Ubicacion</th>
+      <th>Departamento</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @detalle_departamentos.each do |detalle_departamento| %>
+      <tr>
+        <td><%= detalle_departamento.supTotal %></td>
+        <td><%= detalle_departamento.supTechada %></td>
+        <td><%= detalle_departamento.banios %></td>
+        <td><%= detalle_departamento.estacionamiento %></td>
+        <td><%= detalle_departamento.banioServicio %></td>
+        <td><%= detalle_departamento.closet %></td>
+        <td><%= detalle_departamento.recepcion %></td>
+        <td><%= detalle_departamento.condominio %></td>
+        <td><%= detalle_departamento.centroComercial %></td>
+        <td><%= detalle_departamento.cercaColegio %></td>
+        <td><%= detalle_departamento.parque %></td>
+        <td><%= detalle_departamento.intercomunicador %></td>
+        <td><%= detalle_departamento.ascensores %></td>
+        <td><%= detalle_departamento.ambientes %></td>
+        <td><%= detalle_departamento.descambientes %></td>
+        <td><%= detalle_departamento.ubicacion %></td>
+        <td><%= detalle_departamento.departamento_id %></td>
+
+        <td><%= link_to('Mostrar', detalle_departamento_path(detalle_departamento,:departamento_id => @departamento.id)) %></td>
+        <td><%= link_to('Editar', edit_detalle_departamento_path(detalle_departamento,:departamento_id => @departamento.id)) %></td>
+        <td><%= link_to('Eliminar', detalle_departamento_path(detalle_departamento,:departamento_id => @departamento.id), method: :delete, data: { confirm: 'Está seguro?' }) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%#= link_to 'New Detalle Departamento', new_detalle_departamento_path %>
+
+
+        
+     
+        
+
+  

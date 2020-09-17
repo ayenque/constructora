@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :detalle_departamentos do
+	member do
+		get :delete
+	end
+  end
+
+
     resources :usuarios
 
   	resources :alumnos

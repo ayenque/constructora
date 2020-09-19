@@ -1,3 +1,4 @@
+
 <%= form_with(model: proyecto, local: true) do |form| %>
   <% if proyecto.errors.any? %>
     <div id="error_explanation">
@@ -12,28 +13,36 @@
   <% end %>
 
 
-  <div class="field">
-    <%= form.label :nombre, "Nombre de proyecto:" %>
-    <%= form.text_field :nombre, { :class => "form-control", :required => "required" } %>
+  <div class="row">
+    <div class="offset-0 col-7">
+
+      <div class="field">
+        <%= form.label :nombre, "Nombre de proyecto:" %>
+        <%= form.text_field :nombre, { :class => "form-control", :required => "required" } %>
+      </div>
+
+      <div class="field">
+        <%= form.label :descripcion, "Características:" %>
+        <%= form.text_area :descripcion, {:class => "form-control", :rows => "5", :required => "required"} %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :avatar, "Foto del Proyecto:" %>
+        <%= image_tag(@proyecto.avatar.url, style: 'height:auto;width:300px', alt: 'Avatar') if @proyecto.avatar? %><br>
+        <%= form.file_field :avatar, accept:'image/*', :required => "required"  %><br>
+      </div>
+
+      <div class="field">
+        <%= form.label :distrito, "Distrito:" %>
+        <%= form.text_field :distrito, {:class => "form-control", :required => "required"} %>
+      </div>
+      <br>
+      <div class="actions">
+        <%= form.submit "Guardar Proyecto", :class => "btn btn-outline-success active btn-lg" %>
+      </div>
+      <% end %>
+
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :descripcion, "Características:" %>
-    <%= form.text_area :descripcion, {:class => "form-control", :rows => "5", :required => "required"} %>
-  </div>
 
-  <div class="field">
-    <%= form.label :distrito, "Distrito:" %>
-    <%= form.text_field :distrito, {:class => "form-control", :required => "required"} %>
-  </div>
-  
-  <div class="form-group">
-    <%= form.label :avatar, "Imagen:" %>
-    <%= image_tag(@proyecto.avatar.url, style: 'height:auto;width:300px', alt: 'Avatar') if @proyecto.avatar? %><br>
-    <%= form.file_field :avatar, :class => "btn btn-info", accept:'image/*', :required => "required"  %><br>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Guardar Proyecto", :class => "btn btn-primary" %>
-  </div>
-<% end %>

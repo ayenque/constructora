@@ -1,5 +1,4 @@
 <%= link_to("<< Volver a Departamentos", departamentos_path(:proyecto_id => @proyecto.id)) %>
-<p id="notice"><%= notice %></p>
 
 
 <!-- ======= Intro Single ======= -->
@@ -26,6 +25,8 @@
     </div>
   </div>
 </section><!-- End Intro Single-->
+
+<p id="notice"><%= notice %></p>
 
 
 <table summary="Section form fields" class="table">
@@ -74,4 +75,4 @@
 
 </table>
 
-<%= link_to 'Editar departamento', edit_departamento_path(@departamento,:proyecto_id => @proyecto.id) %> 
+<%= link_to 'Editar departamento', edit_departamento_path(@departamento,:proyecto_id => @proyecto.id), :class => "btn btn-outline-success active" %> 

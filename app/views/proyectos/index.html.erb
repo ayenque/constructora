@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
     <section class="intro-single">
       <div class="container">
@@ -26,6 +25,9 @@
       </div>
     </section>
 
+<p id="notice"><%= notice %></p>
+
+
 <hr>
 <!-- primero queremos dividirlo en 3 para saber cuantas veces se crea -->
 <% n = @proyectos.count/3 %>
@@ -34,7 +36,7 @@
   <!-- Creamos la fila -->
   <div class="row">
     <!-- Creamos maximo 3 columnas y sale -->
-    <% 3.downto(0) do |i| %>
+    <% 4.downto(0) do |i| %>
       <!-- Verificamos que el  count no sea mayor a la cantidad de proyectos para evitar error -->
       <% if count == @proyectos.count %>
         <% break %>

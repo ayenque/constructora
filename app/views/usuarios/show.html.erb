@@ -44,7 +44,7 @@
 
 <h2>
   <strong>Perfil: </strong>
-  <%= @usuario.perfil %>
+  <td><%= Perfil.select(:name).where("id in (" + @usuario.perfil.to_s + ")").collect(&:name)[0] %></td>
 </h2>
 
 <br/>

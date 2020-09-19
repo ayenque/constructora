@@ -1,29 +1,57 @@
-<p id="notice"><%= notice %></p>
+<section class="intro-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8">
+        <div class="title-single-box">
+          <h1 class="title-single">Consultas</h1>
+          <span class="color-text-a">Registro de consultas:</span>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-4">
+        <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="/">Inicio</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Contactenos
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section><!-- End Intro Single-->
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @contacto.nombre %>
-</p>
 
-<p>
-  <strong>Apellido:</strong>
-  <%= @contacto.apellido %>
-</p>
+<p id="notice"><h5><%= notice %></h5></p>
 
-<p>
-  <strong>Telefono:</strong>
-  <%= @contacto.telefono %>
-</p>
+<br>
+<table summary="Section form fields" class="table">
+  
+  <tr>
+    <th class="table-active">Nombre:</td>
+    <td><%= @contacto.nombre %></td>
+  </tr>
+  <tr>
+    <th class="table-active">Apellido:</th>
+    <td><%= @contacto.apellido %></td>
+  </tr>
+  <tr>
+    <th class="table-active">Telefono:</th>
+    <td><%= @contacto.telefono %></td>
+  </tr>
+  <tr>
+    <th class="table-active">Correo:</th>
+    <td><%= @contacto.correo %></td>
+  </tr>
+  <tr>
+    <th class="table-active">Mensaje:</th>
+    <td><%= @contacto.mensaje %></td>
+  </tr>
 
-<p>
-  <strong>Correo:</strong>
-  <%= @contacto.correo %>
-</p>
+</table>
+<br>
 
-<p>
-  <strong>Mensaje:</strong>
-  <%= @contacto.mensaje %>
-</p>
 
-<%= link_to 'Edit', edit_contacto_path(@contacto) %> |
-<%= link_to 'Back', contactos_path %>
+<%= link_to 'Regresar', :root, :class => "btn btn-outline-success btn-lg active" %>

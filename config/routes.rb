@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :departamentos do
     member do
 		get :delete
+		
 	  end
    end
 
@@ -62,5 +63,7 @@ Rails.application.routes.draw do
 	root 'home#index'
 
 	post 'static/mimetodo'
+	
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

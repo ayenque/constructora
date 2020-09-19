@@ -45,49 +45,6 @@
   </a>
 </div>
 
-
-    <!-- 
-    <div class="col-8">
-        <div id="carousel_1" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carousel_1" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel_1" data-slide-to="1"></li>
-                <li data-target="#carousel_1" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="https://i.ibb.co/wKFVY5b/depa1.jpg" alt="Primer Slide" class="img-responsive" width="100%" height="500">      
-                    <div class="carousel-caption d-none d-md-block">
-                        <h3>Departamento 1</h3>
-                        <p>Descripcion Departamento 1</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="https://i.ibb.co/rdX0cCQ/depa2.jpg" alt="Segundo Slide" class="img-responsive" width="100%" height="500"> 
-                    <div class="carousel-caption d-none d-md-block">
-                        <h3>Departamento 2</h3>
-                        <p>Descripcion Departamento 2e</p>
-                    </div>
-                </div>
-                <div class="carousel-item"> 
-                    <img src="https://i.ibb.co/QHHT9b2/depa3.jpg" alt="Tercer Slide" class="img-responsive" width="100%" height="500"> 
-                    <div class="carousel-caption d-none d-md-block">
-                        <h3>Departamento 3</h3>
-                        <p>Descripcion Departamento 3</p>
-                    </div>
-                </div>
-            </div>
-            <a href="#carousel_1" class="carousel-control-prev" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Anterior</span>
-            </a>
-            <a href="#carousel_1" class="carousel-control-next" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Siguiente</span>
-            </a>
-        </div>
-    </div>
-    -->
 <br>
 
 <div class="title-box-d">
@@ -99,10 +56,10 @@
 <%= form_for :upc, :html => { :method => :post, :class => "needs-validation", :novalidate => "novalidate" }, :url => { :controller => "static", :action => "mimetodo" } do |f| %>
 
 <div class="row">
-  <div class="cols-6">
+  <div class="col-2">
     <div class="form-group">
-        <select class="form-control" id="exampleFormControlSelect1" value="Por zona">
-        <option>Por zona</option>
+        <select class="form-control form-control" id="exampleFormControlSelect1" value="Distrito">
+        <option>Zona</option>
         <option>Barranco</option>
         <option>Miraflores</option>
         <option>San Isidro</option>
@@ -111,10 +68,10 @@
     </div>
   </div>
       
-  <div class="cols-4">
+  <div class="col-2">
     <div class="form-group">
-        <select class="form-control" id="exampleFormControlSelect1" value="Por Proyecto">
-        <option>Por proyecto</option>
+        <select class="form-control form-control" id="exampleFormControlSelect1" value="Proyecto">
+        <option>Proyecto</option>
         <option>Proyecto 1</option>
         <option>Proyecto 3</option>
         <option>Proyecto 4</option>
@@ -122,30 +79,31 @@
         </select>
     </div>
   </div>
-  <div class="cols-2"> 
+  <div class="col-2"> 
     <div class="form-group">
-        <%= f.number_field :precio, { :class => "form-control", :placeholder => "Por precio" } %>
+        <%= f.number_field :precio, { :class => "form-control form-control", :placeholder => "Precio" } %>
     </div>
   </div>
-  <div class="cols-2">
+  <div class="col-2">
     <div class="form-group">
-        <%= f.number_field :area, { :class => "form-control", :placeholder => "Por área" } %>
+        <%= f.number_field :area, { :class => "form-control form-control", :placeholder => "Área m²" } %>
     </div>
   </div>
-  <div class="cols-2">      
+  <div class="col-2">      
     <div class="form-group">
-        <%= f.number_field :num_hab, { :class => "form-control", :placeholder => "Por número de habitaciones" } %>
+        <%= f.number_field :num_hab, { :class => "form-control form-control", :placeholder => "Nro Hab." } %>
     </div>
   </div>
-   
-    
-    <div class="form-group">
-        <%= f.submit "Buscar Departamentos", :class => "btn btn-success" %>
-    </div> 
-        
+  
+  <div class="col-2">
+    <span align="right">  
+      <div class="form-group">
+        <span class="glyphicon .glyphicon-search">
+        <%= link_to 'Iniciar Busqueda', proyectos_path(@proyectos), :class => "btn btn-outline-success active" %>
+        </span>
+      </div>
+    </span> 
+  </div> 
+</div>       
 
 <% end %>
-
-
-
-</div>  

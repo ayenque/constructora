@@ -43,7 +43,7 @@
       <% departamentos = @departamentos[count] %>
       <!-- Utilizamos el proyectos -->
       <div class="card">
-        <%= image_tag(departamentos.foto.url, style: 'height:300px;width:280px;', alt: 'Foto') if departamentos.foto? %>
+        <%= image_tag(departamentos.foto.url, style: 'height:220px;width:280px;', alt: 'Foto') if departamentos.foto? %>
         <div class="card-body">
           <h4 class="card-title">Departamento: <%= departamentos.numdpto %></h5>
           <h6 class="card-text">Piso: <%= departamentos.piso %></p>
@@ -61,7 +61,7 @@
 <hr>
 
 
-
+<!--
 <table class="table">
   <thead>
     <tr>
@@ -99,6 +99,7 @@
     <% end %>
   </tbody>
 </table>
+-->
 
 
 

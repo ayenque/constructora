@@ -32,6 +32,13 @@
 <%= link_to 'Editar', edit_detalle_departamento_path(@detalle_departamento,:departamento_id => @departamento.id), :class => "btn btn-warning" %> 
 
 
+<% if @detalle_departamento.fotos? %>
+  <ul>
+    <% @detalle_departamento.fotos.each do |foto| %>
+      <%= link_to(image_tag(foto.url, alt: 'Foto',:size => "200x200"), foto.url, target: '_blank') %>
+    <% end %>
+  </ul>
+<% end %>
 
 
 <p>

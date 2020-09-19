@@ -7,16 +7,13 @@
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
               <h1 class="title-single">Listado de Citas</h1>
-              <span class="color-text-a">...</span>
+              <span class="color-text-a">A continuación las listas generadas a hoy.</span>
             </div>
           </div>
           <div class="col-md-12 col-lg-4">
             <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                  <a href="/">Inicio</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">
+                 <li class="breadcrumb-item active" aria-current="page">
                   <%= link_to 'Nueva Cita', new_citation_path , :class => "btn btn-light" %>
                 </li>
               </ol>
@@ -36,9 +33,9 @@
       <th>Apellido</th>
       <th>Email</th>
       <th>Telefono</th>
-      <th>Fechacita</th>
-      <th>Mensaje</th>
-      <th colspan="3"></th>
+      <th>Fecha Cita</th>
+      <th>Mensaje Contacto</th>
+      <th colspan="3"><center>Acciones</center></th>
     </tr>
   </thead>
 
@@ -86,6 +83,11 @@
   </tbody>
 </table>
 
+
+
+<div class="apple_pagination">
+  <%= will_paginate @libros, :container => false %>
+</div>
 
 <!-- 
 

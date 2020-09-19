@@ -26,14 +26,14 @@ class StaticController < ApplicationController
 	def mimetodo
         puts "------- Datos enviados por el formulario -------------"
         puts
-        p1 = params[:upc][:name]
-        p2 = params[:upc][:lastname]
-        p3 = params[:upc][:email]
-        p4 = params[:upc][:prueba]
+        p1 = params[:contact][:precio]
+        p2 = params[:contact][:area]
+        p3 = params[:contact][:numhbitacion]
+        p4 = params[:contact][:prueba]
 
-        puts "El valor del campo nombre es: #{p1}"
-        puts "El valor del campo apellido es: #{p2}"
-        puts "El valor del campo email es: #{p3}"
+        puts "El valor del campo precio es: #{p1}"
+        puts "El valor del campo area es: #{p2}"
+        puts "El valor del campo num Habitacion es: #{p3}"
         puts
         puts "--------Fin -----------"
     end

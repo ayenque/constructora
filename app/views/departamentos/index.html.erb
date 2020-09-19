@@ -27,41 +27,6 @@
   </div>
 </section>
 
-<hr>
-<% n = @departamentos.count/3 %>
-<% count = 0 %>
-<% n.downto(0) do %>
-  <!-- Creamos la fila -->
-  <div class="row">
-    <!-- Creamos maximo 3 columnas y sale -->
-    <% 3.downto(0) do |i| %>
-      <!-- Verificamos que el  count no sea mayor a la cantidad de proyectos para evitar error -->
-      <% if count == @departamentos.count %>
-        <% break %>
-      <% end %>
-      <!-- Obtenemos el proyectos que toca -->
-      <% departamentos = @departamentos[count] %>
-      <!-- Utilizamos el proyectos -->
-      <div class="card">
-        <%= image_tag(departamentos.foto.url, style: 'height:220px;width:280px;', alt: 'Foto') if departamentos.foto? %>
-        <div class="card-body">
-          <h4 class="card-title">Departamento: <%= departamentos.numdpto %></h5>
-          <h6 class="card-text">Piso: <%= departamentos.piso %></p>
-          <h7 class="card-text">Precio $: <%= departamentos.precio %></p>
-          <p class="card-text">Dormitorios: <%= departamentos.numdormitorio %></p>
-          <%= link_to('Ver Detalles', departamento_path(departamentos,:proyecto_id => @proyecto.id), :class => "btn btn-outline-success active") %>
-        </div>
-      </div>
-      <!-- Aumentamos la posición para que en la siguiente utilice el siguiente proyectos -->
-      <% count += 1 %>
-    <% end %>
-  </div>
-<% end %>
-
-<hr>
-
-
-<!--
 <table class="table">
   <thead>
     <tr>
@@ -99,7 +64,39 @@
     <% end %>
   </tbody>
 </table>
--->
 
+
+<hr>
+<% n = @departamentos.count/3 %>
+<% count = 0 %>
+<% n.downto(0) do %>
+  <!-- Creamos la fila -->
+  <div class="row">
+    <!-- Creamos maximo 3 columnas y sale -->
+    <% 3.downto(0) do |i| %>
+      <!-- Verificamos que el  count no sea mayor a la cantidad de proyectos para evitar error -->
+      <% if count == @departamentos.count %>
+        <% break %>
+      <% end %>
+      <!-- Obtenemos el proyectos que toca -->
+      <% departamentos = @departamentos[count] %>
+      <!-- Utilizamos el proyectos -->
+      <div class="card">
+        <%= image_tag(departamentos.foto.url, style: 'height:220px;width:280px;', alt: 'Foto') if departamentos.foto? %>
+        <div class="card-body">
+          <h4 class="card-title">Departamento: <%= departamentos.numdpto %></h5>
+          <h6 class="card-text">Piso: <%= departamentos.piso %></p>
+          <h7 class="card-text">Precio $: <%= departamentos.precio %></p>
+          <p class="card-text">Dormitorios: <%= departamentos.numdormitorio %></p>
+          <%= link_to('Ver Detalles', departamento_path(departamentos,:proyecto_id => @proyecto.id), :class => "btn btn-outline-success active") %>
+        </div>
+      </div>
+      <!-- Aumentamos la posición para que en la siguiente utilice el siguiente proyectos -->
+      <% count += 1 %>
+    <% end %>
+  </div>
+<% end %>
+
+<hr>
 
 

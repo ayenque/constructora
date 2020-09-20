@@ -56,3 +56,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'owlcarousel-rails', '~> 1.1', '>= 1.1.3.3'
 
 gem 'bootstrap-datepicker-rails'
+
+gem 'will_paginate'
+
+gem 'mini_magick'
+
+#gem 'file_validators'

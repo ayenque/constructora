@@ -4,17 +4,14 @@
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
               <h1 class="title-single">Edición de Citas</h1>
-              <span class="color-text-a">...</span>
+              <span class="color-text-a">Por favor revisar los datos y guardar la información.</span>
             </div>
           </div>
           <div class="col-md-12 col-lg-4">
             <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                  <a href="/">Editar Cita</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">
-                  <a href="../">Editar Cita</a>
+                 <li class="breadcrumb-item active" aria-current="page">
+                  <%= link_to 'Cancelar', citations_path, :class => "btn btn-light" %>
                 </li>
               </ol>
             </nav>
@@ -25,5 +22,3 @@
 
 <%= render 'form', citation: @citation %>
 
-<%= link_to 'Mostrar', @citation %> |
-<%= link_to 'Atrás', citations_path %>

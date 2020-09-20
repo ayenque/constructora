@@ -5,6 +5,7 @@ class CitationsController < ApplicationController
   # GET /citations.json
   def index
     @citations = Citation.all
+    @citations = Citation.paginate({page: params[:page], per_page: 5})
   end
 
   # GET /citations/1

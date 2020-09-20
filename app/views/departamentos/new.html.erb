@@ -14,7 +14,7 @@
             <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item active" aria-current="page">
-                  <%= link_to("<< Volver a Detalles", detalle_departamentos_path(:departamento_id => @departamento_id.id), :class => "btn btn-warning" )%>
+                  <%= link_to '<< Volver', departamentos_path(@departamento,:proyecto_id => @proyecto.id), :class => "btn btn-warning" %>
                 </li>
               </ol>
             </nav>

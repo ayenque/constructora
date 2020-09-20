@@ -57,7 +57,7 @@
             <a class="nav-link" href="/citations/new">Reservar Cita</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/static/contactus">Contacto</a>
+            <a class="nav-link" href="/contactos/new">Contacto</a>
           </li>
 
 
@@ -65,14 +65,14 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               V
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/static/proforma">Proforma</a>
-              <a class="dropdown-item" href="/static/separardepartamento">Separar Departamento</a>
-              <a class="dropdown-item" href="/proyectos">Admin Proyectos</a>
-              <a class="dropdown-item" href="/usuarios">Admin Usuarios</a>
-              <a class="dropdown-item" href="/static/registroVta">Registro de Venta</a>
-              <a class="dropdown-item" href="/bloqueos">Bloqueos</a>
-            </div>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/static/proforma">Proforma</a>
+                <a class="dropdown-item" href="/static/separardepartamento">Separar Departamento</a>
+                <a class="dropdown-item" href="/proyectos">Admin Proyectos</a>
+                <a class="dropdown-item" href="/usuarios">Admin Usuarios</a>
+                <a class="dropdown-item" href="/static/registroVta">Registro de Venta</a>
+                <a class="dropdown-item" href="/bloqueos">Bloqueos</a>
+              </div>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/static/faq">Acceder</a>
@@ -158,9 +158,8 @@
     <div class="container">
       <%= yield :intro %>
       <%= yield %>  
-      <%= render "layouts/pie" %>
-  
+      <%= render "layouts/pie" %> 
 
-  </div>
+    </div>
   </body>
 </html>

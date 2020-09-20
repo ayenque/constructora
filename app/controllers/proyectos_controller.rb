@@ -4,15 +4,20 @@ class ProyectosController < ApplicationController
   # GET /proyectos
   # GET /proyectos.json
   def index
-    @proyectos = Proyecto.all
-  end
+    #@proyectos = Proyecto.all
+    if params[:nombre] || params[:distrito]
+      nombre = params[:nombre]
+      distrito = params[:distrito]
+      @proyectos = Proyecto.where(["nombre LIKE ? AND distrito LIKE ?", "%#{nombre}%", "%#{distrito}%"])
+    else
+      @proyectos = Proyecto.all
+    end
 
+  end
 
   def listaproyectos
     @proyectos = Proyecto.all
   end
-
-
 
   # GET /proyectos/1
   # GET /proyectos/1.json

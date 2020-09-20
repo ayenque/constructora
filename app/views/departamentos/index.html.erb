@@ -1,6 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-
 
 <section class="intro-single">
   <div class="container">
@@ -27,78 +24,76 @@
   </div>
 </section>
 
-<hr>
-<% n = @departamentos.count/3 %>
-<% count = 0 %>
-<% n.downto(0) do %>
-  <!-- Creamos la fila -->
-  <div class="row">
-    <!-- Creamos maximo 3 columnas y sale -->
-    <% 3.downto(0) do |i| %>
-      <!-- Verificamos que el  count no sea mayor a la cantidad de proyectos para evitar error -->
-      <% if count == @departamentos.count %>
-        <% break %>
-      <% end %>
-      <!-- Obtenemos el proyectos que toca -->
-      <% departamentos = @departamentos[count] %>
-      <!-- Utilizamos el proyectos -->
-      <div class="card">
-        <%= image_tag(departamentos.foto.url, style: 'height:300px;width:280px;', alt: 'Foto') if departamentos.foto? %>
-        <div class="card-body">
-          <h4 class="card-title">Departamento: <%= departamentos.numdpto %></h5>
-          <h6 class="card-text">Piso: <%= departamentos.piso %></p>
-          <h7 class="card-text">Precio $: <%= departamentos.precio %></p>
-          <p class="card-text">Dormitorios: <%= departamentos.numdormitorio %></p>
-          <%= link_to('Ver Detalles', departamento_path(departamentos,:proyecto_id => @proyecto.id), :class => "btn btn-outline-success active") %>
-        </div>
-      </div>
-      <!-- Aumentamos la posición para que en la siguiente utilice el siguiente proyectos -->
-      <% count += 1 %>
-    <% end %>
+<p id="notice"><%= notice %></p>
+
+
+<div class="row">
+  <div class="col-2">
+    <%# <%= link_to 'Nuevo Proyecto', new_proyecto_path, :class=> "btn btn-warning" %>
   </div>
-<% end %>
+
+  <div class="col-10" align="right">    
+    <%# <%= form_tag departamentos_path, :method => "get", :class => "form-inline" do %>
+    <%= form_tag departamentos_path, :method => "get", :class => "form-inline" do %>
+      <div class="form-group">
+        <label>Buscar por Nro de piso:</label>
+        <%= text_field_tag :piso, params[:piso], :class => "form-control mx-sm-3" %>
+      </div>
+      <div class="form-group">
+        <label>Buscar por Nro dormitorios:</label>
+        <%= text_field_tag :numdormitorio, params[:numdormitorio], :class => "form-control mx-sm-3" %>
+      </div>
+      <div class="form-group">
+        <%= submit_tag 'Buscar', name: nil, :class => "btn btn-success" %>
+      </div>
+
+      <div>
+        <%= hidden_field_tag :proyecto_id , params[:proyecto_id] %>
+      </div>
+
+    <% end %>
+    
+  </div>
+
+</div>
 
 <hr>
+<div class="container">
+
+  <% n = @departamentos.count/3 %>
+  <% count = 0 %>
+  <% n.downto(0) do %>
+    <!-- Creamos la fila -->
+    <div class="row">
+      <!-- Creamos maximo 3 columnas y sale -->
+      <% 3.downto(0) do |i| %>
+        <!-- Verificamos que el  count no sea mayor a la cantidad de proyectos para evitar error -->
+        <% if count == @departamentos.count %>
+          <% break %>
+        <% end %>
+        <!-- Obtenemos el proyectos que toca -->
+        <% departamentos = @departamentos[count] %>
+        <!-- Utilizamos el proyectos -->
+        <div class="card">
+          <%= image_tag(departamentos.foto.url, style: 'height:220px;width:275px;', alt: 'Foto') if departamentos.foto? %>
+          <div class="card-body">
+            <h4 class="card-title">Departamento: <%= departamentos.numdpto %></h4>
+            <h6 class="card-text">Piso: <%= departamentos.piso %></h6>
+            <h7 class="card-text">Precio $: <%= departamentos.precio %></h7>
+            <p class="card-text">Dormitorios: <%= departamentos.numdormitorio %></p>
+            <%= link_to('Ver Detalles', departamento_path(departamentos,:proyecto_id => @proyecto.id), :class => "btn btn-outline-success active") %>
+          </div>
+        </div>
+        <!-- Aumentamos la posición para que en la siguiente utilice el siguiente proyectos -->
+        <% count += 1 %>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>
 
 
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Numero Dpto.</th>
-      <th>Piso</th>
-      <th>Características</th>
-      <th>Precio</th>
-      <th>Area</th>
-      <th>Dormitorios</th>
-      <th>Detalle Departamento</th>
-      <th>Proyecto</th>
-      <th>Ruta de imagen</th>
-      <th colspan="3"> </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @departamentos.each do |departamento| %>
-      <tr>
-        <td><%= departamento.numdpto %></td>
-        <td><%= departamento.piso %></td>
-        <td><%= departamento.descripcion %></td>
-        <td><%= departamento.precio %></td>
-        <td><%= departamento.area %></td>
-        <td><%= departamento.numdormitorio %></td>
-        <td><%= link_to("Ver detalles",  detalle_departamentos_path(:departamento_id => departamento.id), :class => "btn btn-outline-info btn-sm") %></td>
-        <td><%= departamento.proyecto.nombre %></td>
-        <td>/<%= departamento.foto_identifier %></td>
-        <td><%= link_to('Mostrar', departamento_path(departamento,:proyecto_id => @proyecto.id)) %></td>
-     
-        <td><%= link_to('Editar', edit_departamento_path(departamento,:proyecto_id => @proyecto.id)) %></td>
-
-        <td><%= link_to('Eliminar', departamento_path(departamento,:proyecto_id => @proyecto.id), method: :delete, data: { confirm: 'Está seguro?' }) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
 
 

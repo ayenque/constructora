@@ -41,21 +41,28 @@
                 <h6 class="my-0">Precio Base</h6>
                 <small class="text-muted">Por metro cuadrado</small>
               </div>
-              <span class="text-muted">XXX</span>
+              <span class="text-muted"><%= @base = 1000  %></span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
                 <h6 class="my-0">Area del Departamento</h6>
                 <small class="text-muted"></small>
               </div>
-              <span class="text-muted">XXX</span>
+              <span class="text-muted"><%= @area = 120.00 %></span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
                 <h6 class="my-0">Descuento</h6>
                 <small class="text-muted">Dependiendo del Piso</small>
               </div>
-              <span class="text-muted">XXX</span>
+              <span class="text-muted"><%= @descuento = 0.90 %></span>
+
+                <%=   @hola
+                  %>
+                
+
+
+              </span>
             </li>
             <li class="list-group-item d-flex justify-content-between bg-light">
               <div class="text-success">
@@ -66,7 +73,7 @@
             </li>
             <li class="list-group-item d-flex justify-content-between">
               <strong>Total ($)</strong>
-              <strong>XXX</strong>
+              <strong><%= (@area * @base) * @descuento %></strong>
             </li>
           </ul>
 
@@ -84,7 +91,7 @@
           <form class="needs-validation" novalidate>
             <div class="row">
               <div class="col-md-6 mb-3">
-                <label for="nombrs">Nombres</label>
+                <label for="nombres">Nombres</label>
                 <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
                 <div class="invalid-feedback">
                   Se necesita ingresar los nombres del cliente.
@@ -160,6 +167,7 @@
                 <label for="departamento">Número de Departamento</label>
                 <select class="custom-select d-block w-100" id="state" required>
                   <option value="">Elija la opción...</option>
+
                   <option>201</option>
                   <option>202</option>
                   <option>203</option>
@@ -172,6 +180,8 @@
                   <option>501</option>
                   <option>502</option>
                   <option>503</option>
+
+
                   
                 </select>
                 <div class="invalid-feedback">

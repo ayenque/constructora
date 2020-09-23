@@ -39,6 +39,8 @@ Rails.application.routes.draw do
 
 
 	resources :alumnos
+
+	
 	get 'home/index'
 
 

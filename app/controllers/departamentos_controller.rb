@@ -7,8 +7,7 @@ class DepartamentosController < ApplicationController
   def index
     #obtener el  Proyecto con el id recibido
     #@proyecto = Proyecto.find(params[:proyecto_id])    
-    #@departamentos = @proyecto.departamentos
-    
+    #@departamentos = @proyecto.departamentos    
 
     if params[:piso] || params[:numdormitorio]
       

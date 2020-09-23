@@ -1,5 +1,5 @@
- 
-  <!--Caotura el Nombre del Proyecto en el Título-->
+<!--Captura el Nombre del Proyecto en el Título-->
+
 <div class="container">
   <div class="field">
     <h3><%= f.label :proyecto, "Proyecto:" %>
@@ -43,9 +43,11 @@
       <div class="form-group">
         <%= f.label :foto, "Imagen:" %>
         <%= image_tag(@departamento.foto.url, style: 'height:auto;width:300px', alt: 'Foto') if @departamento.foto? %><br>
-        <%= f.file_field :foto, accept:'image/*', :required => "required"  %><br>
+        <%= f.file_field :foto, accept:'image/*' %><br>
       </div>
 
+
+ 
      
       <div class="actions">
         <%= f.submit "Guardar departamento", :class => "btn btn-outline-success btn-lg active"  %>

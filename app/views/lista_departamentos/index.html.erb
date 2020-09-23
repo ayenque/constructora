@@ -23,30 +23,57 @@
   </div>
 </section>
     
-<p id="notice"><%= notice %></p>
+<h3 id="notice"><%= notice %></h3><br>
 
 
+<div class="row">
+  <div class="col-2">
+    <%= link_to 'Nuevo Departamento', new_lista_departamento_path, :class=> "btn btn-warning" %>
+  </div>
 
+  <div class="col-10" align="right">    
+    <%# <%= form_tag departamentos_path, :method => "get", :class => "form-inline" do %>
+    <%= form_tag lista_departamentos_path, :method => "get", :class => "form-inline" do %>
+      <div class="form-group">
+        <label>Buscar por Nro de piso:</label>
+        <%= number_field_tag :piso, params[:piso], :class => "form-control mx-sm-3" %>
+      </div>
+      <div class="form-group">
+        <label>Buscar por Nro dormitorios:</label>
+        <%= number_field_tag :numdormitorio, params[:numdormitorio], :class => "form-control mx-sm-3" %>
+      </div>
+      <div class="form-group">
+        <%= submit_tag 'Buscar', name: nil, :class => "btn btn-success" %>
+      </div>
+      <%# compao oculto para guardar el id_proyecto %>
+      <%#<div>
+        <%#<%= hidden_field_tag :proyecto_id , params[:proyecto_id] %>
+      <%#</div> %>
 
-<!--<p>Find me in app/views/lista_departamentos/index.html.erb</p>-->
+    <% end %>
+    
+  </div>
+</div>
+
+<hr>
 
 <table class="table">
-  <thead>
+  <thead class="table-success" align="center">
     <tr>
       <th>Numero Dpto.</th>
       <th>Piso</th>
       <th>Características</th>
       <th>Precio</th>
       <th>Area</th>
-      <th>Dormitorios</th>
+      <th >Dormitorios</th>
       <th>Proyecto</th>
       <th>Ruta de imagen</th>
-      <th colspan="3"> </th>
+      <th colspan="3" text-align="right"> Acciones </th>
     </tr>
   </thead>
 
-  <tbody>
-    <% @departamentos.each do |departamento| %>
+  <tbody align="center">
+    <% @lista_departamentos.each do |departamento| %>
       <tr>
         <td><%= departamento.numdpto %></td>
         <td><%= departamento.piso %></td>
@@ -56,12 +83,48 @@
         <td><%= departamento.numdormitorio %></td>
         <td><%= departamento.proyecto.nombre %></td>
         <td>/<%= departamento.foto_identifier %></td>
-        <td><%= link_to('Mostrar', departamento_path(departamento,:proyecto_id => @proyecto.id)) %></td>
-     
-        <td><%= link_to('Editar', edit_departamento_path(departamento,:proyecto_id => @proyecto.id)) %></td>
-
-        <td><%= link_to('Eliminar', departamento_path(departamento,:proyecto_id => @proyecto.id), method: :delete, data: { confirm: 'Está seguro?' }) %></td>
+        
+        <%#departamento_path(departamento,:proyecto_id => @proyecto.id))%>
+        <%#departamento_path(departamento,:proyecto_id => @proyecto.id))%>
+        <td><%= link_to 'Mostrar', lista_departamento_path(departamento) %></td>
+        <td><%= link_to 'Editar', edit_lista_departamento_path(departamento) %></td>
+        <td><%= link_to 'Eliminar', lista_departamento_path(departamento), method: :delete, data: { confirm: 'Está seguro ?' } %></td>
+        
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<hr>
+
+<% n = @lista_departamentos.count/4 %>
+  <% count = 0 %>
+  <% n.downto(0) do %>
+    <!-- Creamos la fila -->
+    <div class="row">
+      <!-- Creamos maximo 3 columnas y sale -->
+      <% 3.downto(0) do |i| %>
+        <!-- Verificamos que el  count no sea mayor a la cantidad de proyectos para evitar error -->
+        <% if count == @lista_departamentos.count %>
+          <% break %>
+        <% end %>
+        <!-- Obtenemos el proyectos que toca -->
+        <% lista_departamentos = @lista_departamentos[count] %>
+        <!-- Utilizamos el proyectos -->
+        <div class="card">
+          <%= image_tag(lista_departamentos.foto.url, style: 'height:220px;width:275px;', alt: 'Foto') if lista_departamentos.foto? %>
+          <div class="card-body">
+            <h4 class="card-title">Departamento: <%= lista_departamentos.numdpto %></h4>
+            <h5 class="card-text">Proyecto: <br>
+              <span class="color-d"><%= lista_departamentos.proyecto.nombre %></span></h5>
+            <h6 class="card-text">Piso: <%= lista_departamentos.piso %></h6>
+            <h7 class="card-text">Precio $: <%= lista_departamentos.precio %></h7>
+            <p class="card-text">Dormitorios: <%= lista_departamentos.numdormitorio %></p>
+            <%= link_to('Ver Detalles', lista_departamento_path(lista_departamentos), :class => "btn btn-outline-success active") %>
+          </div>
+        </div>
+        <!-- Aumentamos la posición para que en la siguiente utilice el siguiente proyectos -->
+        <% count += 1 %>
+      <% end %>
+    </div>
+  <% end %>

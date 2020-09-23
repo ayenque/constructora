@@ -29,7 +29,7 @@
 
 <div class="row">
   <div class="col-4">
-    <!--<%= link_to 'Nuevo Proyecto', new_proyecto_path, :class=> "btn btn-warning" %>-->
+    <%#<%= link_to 'Nuevo Proyecto', new_proyecto_path, :class=> "btn btn-warning" %>
   </div>
 
   <div class="col-8">    
@@ -60,7 +60,7 @@
     <!-- Creamos la fila -->
     <div class="row">
       <!-- Creamos maximo 3 columnas y sale -->
-      <% 4.downto(0) do |i| %>
+      <% 2.downto(0) do |i| %>
         <!-- Verificamos que el  count no sea mayor a la cantidad de proyectos para evitar error -->
         <% if count == @proyectos.count %>
           <% break %>
@@ -85,5 +85,33 @@
 
 </div>
 
+<hr>
+
+<table class="table">
+  <thead class="table-success">
+    <tr>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Distrito</th>
+      <th>Ruta de imagen</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @proyectos.each do |proyecto| %>
+      <tr>
+        <td><%= proyecto.nombre %></td>
+        <td><%= proyecto.descripcion %></td>
+        <td><%= proyecto.distrito %></td>
+        <td>/<%= proyecto.avatar_identifier %></td>
+        <td><%= link_to("Ver departamentos",  departamentos_path(:proyecto_id => proyecto.id), :class => "btn btn-outline-info btn-sm active") %></td>
+        <td><%= link_to 'Mostrar', proyecto %></td>
+        <td><%= link_to 'Editar', edit_proyecto_path(proyecto) %></td>
+        <td><%= link_to 'Eliminar', proyecto, method: :delete, data: { confirm: 'Está seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 

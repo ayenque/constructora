@@ -40,7 +40,7 @@
         <span></span>
         <span></span>
       </button>
-      <a class="navbar-brand text-brand" href="/">Home<span class="color-b">Agency</span></a>
+      <a class="navbar-brand text-brand" href="/"><h4>Home<span class="color-b">Agency</span></h4></a>
       <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-expanded="false">
         <span class="fa fa-search" aria-hidden="true"></span>
       </button>
@@ -160,6 +160,9 @@
 -->
     <div class="container">
       <%= yield :intro %>
+      
+      <%= render "layouts/menusecundario" %>
+
       <%= yield %>  
       <%= render "layouts/pie" %> 
 

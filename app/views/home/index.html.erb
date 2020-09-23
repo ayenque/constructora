@@ -59,72 +59,16 @@
 
 <br>
 
+<hr>
 <div class="title-box-d">
   <h3 class="title-d">Búsqueda
-    <span class="color-d">de </span>Departamentos</h3>
+    <span class="color-d">de </span>Proyetos</h3>
 </div>
 
 
-<%= form_for :upc, :html => { :method => :post, :class => "needs-validation", :novalidate => "novalidate" }, :url => { :controller => "static", :action => "mimetodo" } do |f| %>
 
 <div class="row">
-  <div class="col-2">
-    <div class="form-group">
-        <select class="form-control form-control" id="exampleFormControlSelect1" value="Distrito">
-        <option>Zona</option>
-        <option>Barranco</option>
-        <option>Miraflores</option>
-        <option>San Isidro</option>
-        <option>La Molina</option>
-        </select>
-    </div>
-  </div>
-      
-  <div class="col-2">
-    <div class="form-group">
-        <select class="form-control form-control" id="exampleFormControlSelect1" value="Proyecto">
-        <option>Proyecto</option>
-        <option>Proyecto 1</option>
-        <option>Proyecto 3</option>
-        <option>Proyecto 4</option>
-        <option>Proyecto 5</option>
-        </select>
-    </div>
-  </div>
-  <div class="col-2"> 
-    <div class="form-group">
-        <%= f.number_field :precio, { :class => "form-control form-control", :placeholder => "Precio" } %>
-    </div>
-  </div>
-  <div class="col-2">
-    <div class="form-group">
-        <%= f.number_field :area, { :class => "form-control form-control", :placeholder => "Área m²" } %>
-    </div>
-  </div>
-  <div class="col-2">      
-    <div class="form-group">
-        <%= f.number_field :num_hab, { :class => "form-control form-control", :placeholder => "Nro Hab." } %>
-    </div>
-  </div>
   
-  <div class="col-2">
-    <span align="right">  
-      <div class="form-group">
-        <span class="glyphicon .glyphicon-search">
-        <%= link_to 'Iniciar Busqueda', proyectos_path(@proyectos), :class => "btn btn-outline-success active" %>
-        </span>
-      </div>
-    </span> 
-  </div> 
-</div>       
-
-<% end %>
-<hr>
-
-<div class="row">
-  <div class="col-4">
-    <!--<%= link_to 'Nuevo Proyecto', new_proyecto_path, :class=> "btn btn-warning" %>-->
-  </div>
 
   <div class="col-8">    
     <%= form_tag proyectos_path, :method => "get", :class => "form-inline" do %>
@@ -144,3 +88,29 @@
   </div>
 
 </div>
+
+<hr>
+<div class="title-box-d">
+  <h3 class="title-d">Búsqueda
+    <span class="color-d">de </span>Departamentos</h3>
+</div>
+
+<hr>
+<%= form_tag lista_departamentos_path, :method => "get", :class => "form-inline" do %>
+  <div class="form-group">
+    <label>Buscar por Nro de piso:</label>
+    <%= number_field_tag :piso, params[:piso], :class => "form-control mx-sm-3" %>
+  </div>
+  <div class="form-group">
+    <label>Buscar por Nro dormitorios:</label>
+    <%= number_field_tag :numdormitorio, params[:numdormitorio], :class => "form-control mx-sm-3" %>
+  </div>
+  <div class="form-group">
+    <%= submit_tag 'Buscar', name: nil, :class => "btn btn-success" %>
+  </div>
+  <%# compao oculto para guardar el id_proyecto %>
+  <%#<div>
+    <%#<%= hidden_field_tag :proyecto_id , params[:proyecto_id] %>
+  <%#</div> %>
+
+<% end %>

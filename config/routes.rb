@@ -1,27 +1,36 @@
 Rails.application.routes.draw do
-  get 'lista_departamentos/index'
-  resources :detalle_departamentos do
-	member do
-		get :delete
-	end
-  end
 
+	resources :lista_departamentos do
+		member do
+			get :delete
+			get :show_user
+  		end
+  	end
 
-  resources :contactos
-  resources :bloqueos
-  resources :usuarios
+	#get 'lista_departamentos/index'
+
+	#resources :lista_departamentos
+
+    resources :detalle_departamentos do
+		member do
+			get :delete
+		end
+  	end
+
+	resources :contactos
+	resources :bloqueos
+	resources :usuarios
 
   	resources :alumnos
   	get 'home/index'
   	
-
-
-  resources :departamentos do
-    member do
-		get :delete
-		
-	  end
-   end
+  	
+	resources :departamentos do
+		member do
+			get :delete
+			
+		end
+	end
 
   	resources :citations do
   		member do
@@ -30,19 +39,12 @@ Rails.application.routes.draw do
   		end
 	end
 
-
 	resources :proyectos do
 		member do
 			get :delete
 			get 'listaproyectos'
 		end
-   end
-
-
-	resources :alumnos
-	get 'home/index'
-
-
+  	end
 
 	get 'static/aboutus'
 	get 'static/contactus'
@@ -59,7 +61,7 @@ Rails.application.routes.draw do
 	get 'static/detalledepartamento'
 	get 'static/solicitarcita'
 	get 'static/departamentos'
-
+	
 
 	root 'home#index'
 

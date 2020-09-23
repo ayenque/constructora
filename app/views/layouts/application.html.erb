@@ -66,77 +66,86 @@
         <ul class="navbar-nav mr-auto">
         <!------------------ Vista para el Administrador------------ -->
                <% if logged_in? && current_user.perfil == '1' %>
-                    <li class="nav-item">
-                      <a class="nav-link" href="/cotizacions/">Citas </a> 
-                    </li>
 
-                    <li class="nav-item">
-                    <!--/  <a class="nav-link" href="/reserva_vehiculos/new">Reserva  </a>/-->
-                    </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Proyectos
+                      </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/proyectos">Proyectos</a>
+                    <a class="dropdown-item" href="/proyectos">Proyectos</a>
+
+                    </div>
+
+                  </li>
+
+
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Departamentos
+                      </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/departamentos">Departamentos</a>
+                    <a class="dropdown-item" href="/static/separardepartamento">Separar Departamento</a>
+                    <a class="dropdown-item" href="/bloqueos">Bloqueos</a>
+
+                    </div>
+
+                  </li>
+
+                   <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Citas
+                      </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/citations">Lista de Citas</a>
+
+                    </div>
+
+                  </li>
+
 
                     <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Venta
-                      </a>
-                      
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <% if logged_in? && current_user.perfil == 1 %>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ventas
+                    </a>
 
-                        <a class="dropdown-item" href="/proformas/">Proforma</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/static/proforma">Proforma</a>
+                    <a class="dropdown-item" href="/static/registroVta">Registro de Venta</a>
+                    <a class="dropdown-item" href="/departamentos">Departamentos</a>
+                    <a class="dropdown-item" href="/proyectos">Departamentos</a>
+                    </div>
 
-                        <% else %>
-                        <a class="dropdown-item" href="/proformas/new">Proforma</a>
-                        <% end %>
+                  </li>
+              <!------------------ Vista para el gerente ------------ -->
+              <% elsif logged_in? && current_user.perfil == '2' %>
 
-                        <% if logged_in? && current_user.perfil == "Administrador" %>
-                        <a class="dropdown-item" href="/venta/">Venta</a>   
-                        <% else %>
-                          <a class="dropdown-item" href="/venta/new">Venta</a>   
-                        <% end %>
-                        <!--/ <a class="dropdown-item" href="/">Datos del Ciente</a>/-->
-                      </div>
-                    </li>
-                    <% if logged_in? && current_user.perfil == 1 %>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Mantenimientos
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/usuarios">Usuarios de Sistema</a>
-                        <a class="dropdown-item" href="/vehiculos">Vehiculos</a>
-                      
-                        <a class="dropdown-item" href="/precio_finals/">Precio Base</a>
-                        
-                        <a class="dropdown-item" href="/marca_vehiculos">Marca</a>
-                        <a class="dropdown-item" href="/modelo_vehiculos">Modelo</a>
-                        <a class="dropdown-item" href="/tipo_vehiculos">Tipo de vehiculos</a>
-                          <a class="dropdown-item" href="/cita/">Citas</a>
-                
-                      </div>
-                    </li>
-                    <% end %>
-                        <li class="nav-item dropdown">
+                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         Reportes
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/venta/">Ventas</a>
-                        <a class="dropdown-item" href="/vehiculos/">Estado de Vehiculos</a>
-                      <!--/ <a class="dropdown-item" href="h5.2-Lista Clientes por Atender.html">Clientes</a>/-->
+                        <a class="dropdown-item" href="/proyectos">Reporte 1</a>
+                        <a class="dropdown-item" href="/proyectos">Reporte 1</a>
+                        <a class="dropdown-item" href="/proyectos">Reporte 1</a>
+                        <a class="dropdown-item" href="/proyectos">Reporte 1</a>
                       </div>
                     </li>
-            
             <!------------------ Vista para el público------------ -->
-
             <% else %>   
                     <li class="nav-item">
                       <a class="nav-link active" href="/static/aboutus">Nosotros</a>
                     </li>
                      <li class="nav-item">
-                      <a class="nav-link active" href="/static/contactus">Contáctenos</a>
+                      <a class="nav-link active" href="/contactos/new">Contáctenos</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link active" href="/proyectos">Proyectos</a>
@@ -144,7 +153,7 @@
    
             <% end %> 
         </ul>
-        
+        <!------------------ Login ---------- -->
         <ul class="navbar-nav mr-auto">
            <% if logged_in? %>
            

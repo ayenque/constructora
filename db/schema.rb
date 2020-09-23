@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_23_045436) do
+ActiveRecord::Schema.define(version: 2020_09_23_220349) do
 
   create_table "alumnos", force: :cascade do |t|
     t.string "nombres"
@@ -29,8 +29,6 @@ ActiveRecord::Schema.define(version: 2020_09_23_045436) do
     t.integer "departamento"
     t.string "voucher"
     t.string "tipo"
-    t.string "de"
-    t.string "moneda"
     t.integer "monto"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -111,14 +109,17 @@ ActiveRecord::Schema.define(version: 2020_09_23_045436) do
   end
 
   create_table "proforma_details", force: :cascade do |t|
-    t.string "proyecto"
     t.string "dpto"
     t.float "base"
     t.float "area"
     t.integer "descuento"
     t.float "total"
+    t.integer "proyecto_id"
+    t.integer "proforma_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["proforma_id"], name: "index_proforma_details_on_proforma_id"
+    t.index ["proyecto_id"], name: "index_proforma_details_on_proyecto_id"
   end
 
   create_table "proyectos", force: :cascade do |t|
@@ -131,14 +132,10 @@ ActiveRecord::Schema.define(version: 2020_09_23_045436) do
     t.string "distrito"
   end
 
-  create_table "sale_details", force: :cascade do |t|
-    t.integer "departamento"
-    t.integer "departamento_id", null: false
-    t.integer "sale_id", null: false
+  create_table "user_profiles", force: :cascade do |t|
+    t.string "descripcion"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["departamento_id"], name: "index_sale_details_on_departamento_id"
-    t.index ["sale_id"], name: "index_sale_details_on_sale_id"
   end
 
   create_table "usuarios", force: :cascade do |t|
@@ -153,6 +150,6 @@ ActiveRecord::Schema.define(version: 2020_09_23_045436) do
   end
 
   add_foreign_key "detalle_departamentos", "departamentos"
-  add_foreign_key "sale_details", "departamentos"
-  add_foreign_key "sale_details", "sales"
+  add_foreign_key "proforma_details", "proformas"
+  add_foreign_key "proforma_details", "proyectos"
 end

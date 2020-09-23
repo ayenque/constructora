@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :user_profiles
+
+  
   get 'lista_departamentos/index'
 
   resources :detalle_departamentos do

@@ -24,13 +24,15 @@ Rails.application.routes.draw do
   	resources :alumnos
   	get 'home/index'
   	
-  	
-	resources :departamentos do
-		member do
-			get :delete
-			
-		end
-	end
+
+
+  resources :departamentos do
+    member do
+		get :delete
+		get 'listadepartamentos'
+		
+	  end
+   end
 
   	resources :citations do
   		member do
@@ -44,7 +46,15 @@ Rails.application.routes.draw do
 			get :delete
 			get 'listaproyectos'
 		end
-  	end
+   end
+
+
+	resources :alumnos
+
+	
+	get 'home/index'
+
+
 
 	get 'static/aboutus'
 	get 'static/contactus'
@@ -66,6 +76,12 @@ Rails.application.routes.draw do
 	root 'home#index'
 
 	post 'static/mimetodo'
+
+
+	get 'signup' => 'usuarios#new'
+	get 'login' => 'sessions#new'
+	post 'login' => 'sessions#create'
+	delete 'logout' => 'sessions#destroy'
 	
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

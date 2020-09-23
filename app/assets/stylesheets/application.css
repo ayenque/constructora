@@ -17,7 +17,8 @@
  # Or if using bootstrap v3:
  *= require bootstrap-datepicker3
  *= require bootstrap-datepicker
-
+ *= require owl.carousel
+ *= require owl.theme
  */
 
 

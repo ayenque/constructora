@@ -12,10 +12,10 @@
         <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <%= link_to 'Proyectos', proyectos_path, :class => "btn btn-warning" %>
+              <%= link_to 'Lista Departamentos', listadepartamentos_departamento_path(@departamentos,:proyecto_id => @proyecto.id), :class => "btn btn-warning" %>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-              <%= link_to('Nuevo departamento', new_departamento_path(:proyecto_id => @proyecto.id), :class => "btn btn-warning" )  %>
+              <%= link_to('Nuevo', new_departamento_path(:proyecto_id => @proyecto.id), :class => "btn btn-warning" )  %>
             </li>
           </ol>
         </nav>

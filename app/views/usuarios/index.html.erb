@@ -41,12 +41,12 @@
       <tr>
         <td><%= usuario.dni %></td>
         <td><%= usuario.nombres %></td>
-        <td><%= usuario.apellidos %></td>        
+        <td><%= usuario.apellidos %></td>         
         <td><%= Perfil.select(:name).where("id in (" + usuario.perfil.to_s + ")").collect(&:name)[0] %></td>
 
         <td><%= link_to 'Ver', usuario %></td>
         <td><%= link_to 'Editar', edit_usuario_path(usuario) %></td>
-        <td><%= link_to 'Eliminar', usuario, method: :delete, data: { confirm: '¿Esta seguro?' } %></td>
+        <td><%= link_to 'Eliminar', usuario, method: :delete, data: { confirm: '¿Esta seguro de eliminar el registro?' } %></td>
       </tr>
     <% end %>
   </tbody>

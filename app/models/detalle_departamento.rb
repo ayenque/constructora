@@ -1,4 +1,5 @@
 class DetalleDepartamento < ApplicationRecord
+  
   belongs_to :departamento
 
   mount_uploaders  :fotos ,  ImageUploader

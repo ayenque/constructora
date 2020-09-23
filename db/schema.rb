@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 2020_09_23_045436) do
     t.integer "departamento"
     t.string "voucher"
     t.string "tipo"
+    t.string "de"
+    t.string "moneda"
     t.integer "monto"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -108,6 +110,17 @@ ActiveRecord::Schema.define(version: 2020_09_23_045436) do
     t.string "name"
   end
 
+  create_table "proforma_details", force: :cascade do |t|
+    t.string "proyecto"
+    t.string "dpto"
+    t.float "base"
+    t.float "area"
+    t.integer "descuento"
+    t.float "total"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "proyectos", force: :cascade do |t|
     t.string "nombre"
     t.text "descripcion"
@@ -116,6 +129,16 @@ ActiveRecord::Schema.define(version: 2020_09_23_045436) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "avatar"
     t.string "distrito"
+  end
+
+  create_table "sale_details", force: :cascade do |t|
+    t.integer "departamento"
+    t.integer "departamento_id", null: false
+    t.integer "sale_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["departamento_id"], name: "index_sale_details_on_departamento_id"
+    t.index ["sale_id"], name: "index_sale_details_on_sale_id"
   end
 
   create_table "usuarios", force: :cascade do |t|
@@ -130,4 +153,6 @@ ActiveRecord::Schema.define(version: 2020_09_23_045436) do
   end
 
   add_foreign_key "detalle_departamentos", "departamentos"
+  add_foreign_key "sale_details", "departamentos"
+  add_foreign_key "sale_details", "sales"
 end

@@ -62,3 +62,5 @@ gem 'will_paginate'
 gem 'mini_magick'
 
 #gem 'file_validators'
+
+gem 'jquery-rails'

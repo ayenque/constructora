@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'lista_departamentos/index'
+
   resources :detalle_departamentos do
 	member do
 		get :delete
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
   resources :departamentos do
     member do
 		get :delete
+		get 'listadepartamentos'
 		
 	  end
    end
@@ -40,6 +42,8 @@ Rails.application.routes.draw do
 
 
 	resources :alumnos
+
+	
 	get 'home/index'
 
 

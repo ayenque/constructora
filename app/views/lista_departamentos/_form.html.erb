@@ -18,6 +18,12 @@
   <div class="row">
     <div class="offset-0 col-7">
 
+      <%# Mostrar los proyectos en un combo %>
+      <div class="field">
+        <%= form.label :proyecto_id %>
+        <%= form.select :proyecto_id, Proyecto.all.collect {|e| [e.nombre, e.id] } , { :include_blank => "Seleccione" }, { :class => "form-control" } %>
+      </div>
+
       <div class="field">
         <%= form.label :numdpto, "Número de departamento:"  %>
         <%= form.number_field :numdpto, { :class => "form-control", :required => "required" } %>
@@ -54,15 +60,13 @@
         <%= form.file_field :foto, accept:'image/*' %><br>
       </div>
 
-      <%# Mostrar los proyectos en un combo %>
-
       
-
-
+      
+      <%#
       <div class="field">
         <%= form.label :proyecto_id, "Id Proyecto:" %>
-        <%= form.number_field :proyecto_id, { :class => "form-control" } %>
-      </div>
+        <%#<%= form.number_field :proyecto_id, { :class => "form-control" } %>
+      <%#</div>%>
      
       <div class="actions">
         <%= form.submit "Guardar departamento", :class => "btn btn-outline-success btn-lg active"  %>

@@ -27,6 +27,11 @@
 
 
 <table summary="Section form fields" class="table">
+  <%#Se trae el nombre de la tabla relacionada%>
+  <tr>
+    <th>Proyecto:</th>
+    <td><%= Proyecto.select(:nombre).where("id = " + @lista_departamento.proyecto_id.to_s).collect(&:nombre)[0] %></td>
+  </tr>
 
   <tr>
     <th>Numero Dpto:</th>

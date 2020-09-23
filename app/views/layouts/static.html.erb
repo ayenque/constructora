@@ -67,9 +67,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/proyectos">Proyectos</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/citations/new">Reservar Cita</a>
-          </li>
+
           <li class="nav-item">
             <a class="nav-link" href="/contactos/new">Contacto</a>
           </li>
@@ -77,6 +75,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               V
+            </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="/citations">Lista de Citas</a>
               <a class="dropdown-item" href="/static/proforma">Proforma</a>
@@ -85,6 +84,7 @@
               <a class="dropdown-item" href="/static/registroVta">Registro de Venta</a>
               <a class="dropdown-item" href="/bloqueos">Bloqueos</a>
             </div>
+
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/static/faq">Acceder</a>
@@ -98,9 +98,11 @@
             <span>Bienvenido <%= @current_usuario.nombres %></span>
           </li>
           <li class="nav-item">
-            <%= link_to logout_path, method: :delete do %> 
-              <span>Salir</span>
-            <% end %>
+            <button>
+              <%= link_to logout_path, method: :delete do %> 
+                <span>Salir</span>
+              <% end %>
+            </button>
           </li>        
         <% end %>
       </ul>

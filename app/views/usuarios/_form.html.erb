@@ -35,7 +35,7 @@
   <div class="form row">
   <div class="form-group col-md-6">
     <label for="inputPerfil">Perfil</label>
-    <%= form.select :perfil, options_from_collection_for_select(Perfil.all, :id, :name) , { :include_blank => "Seleccione" }, { :class => "form-control" } %>
+    <%= form.select :perfil, options_from_collection_for_select(UserProfile.all, :id, :descripcion) , { :include_blank => "Seleccione" }, { :class => "form-control" } %>
   </div>
   </div>
 

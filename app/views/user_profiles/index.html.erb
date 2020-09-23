@@ -5,8 +5,8 @@
         <div class="row">
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
-              <h1 class="title-single">Relación de Usuarios</h1>
-              <span class="color-text-a">...</span>
+              <h1 class="title-single">Perfiles de Acceso</h1>
+              <span class="color-text-a">Lista de accesos para el sistema</span>
             </div>
           </div>
           <div class="col-md-12 col-lg-4">
@@ -16,7 +16,7 @@
                   <a href="/"><button type="button" class="btn btn-light">Inicio</button></a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                  <%= link_to 'Crear Usuario', new_usuario_path, :class => "btn btn-light" %>
+                  <%= link_to 'Usuarios', usuarios_path, :class => "btn btn-light" %>
                 </li>
               </ol>
             </nav>
@@ -25,28 +25,21 @@
       </div>
     </section>
 
-<table class="table">
-  <thead class="thead-dark">
+<table class="table table-hover">
+  <thead>
     <tr>
-      <th>DNI</th>
-      <th>Nombres</th>
-      <th>Apellidos</th>
-      <th>Perfil</th>
+      <th>Descripcion</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @usuarios.each do |usuario| %>
+    <% @user_profiles.each do |user_profile| %>
       <tr>
-        <td><%= usuario.dni %></td>
-        <td><%= usuario.nombres %></td>
-        <td><%= usuario.apellidos %></td>         
-        <td><%= UserProfile.select(:descripcion).where("id in (" + usuario.perfil.to_s + ")").collect(&:descripcion)[0] %></td>
-
-        <td><%= link_to 'Ver', usuario %></td>
-        <td><%= link_to 'Editar', edit_usuario_path(usuario) %></td>
-        <td><%= link_to 'Eliminar', usuario, method: :delete, data: { confirm: '¿Esta seguro de eliminar el registro?' } %></td>
+        <td><%= user_profile.descripcion %></td>
+        <td><%= link_to 'Show', user_profile %></td>
+        <td><%= link_to 'Edit', edit_user_profile_path(user_profile) %></td>
+        <td><%= link_to 'Destroy', user_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -54,3 +47,4 @@
 
 <br>
 
+<%= link_to 'New User Profile', new_user_profile_path %>

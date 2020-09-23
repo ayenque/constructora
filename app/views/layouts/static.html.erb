@@ -52,121 +52,135 @@
         <span></span>
         <span></span>
       </button>
-      <a class="navbar-brand text-brand" href="/">Home<span class="color-b">Agency</span></a>
+      <a class="navbar-brand text-brand" href="/">HOME<span class="color-b">AGENCY</span></a>
       <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-expanded="false">
         <span class="fa fa-search" aria-hidden="true"></span>
       </button>
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="/">Inicio</a>  
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/static/aboutus">Nosotros</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/proyectos">Proyectos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/citations/new">Reservar Cita</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/contactos/new">Contacto</a>
-          </li>
-    
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              V
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/citations">Lista de Citas</a>
-              <a class="dropdown-item" href="/static/proforma">Proforma</a>
-              <a class="dropdown-item" href="/static/separardepartamento">Separar Departamento</a>
-              <a class="dropdown-item" href="/proyectos">Admin Proyectos</a>      
-              <a class="dropdown-item" href="/static/registroVta">Registro de Venta</a>
-              <a class="dropdown-item" href="/bloqueos">Bloqueos</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/static/faq">Acceder</a>
-          </li>
+        <!------------------ Vista para el Administrador------------ -->
+               <% if logged_in? && current_user.perfil == '1' %>
+
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Proyectos
+                      </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/proyectos">Proyectos</a>
+                    <a class="dropdown-item" href="/proyectos">Proyectos</a>
+
+                    </div>
+
+                  </li>
+
+
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Departamentos
+                      </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/departamentos">Departamentos</a>
+                    <a class="dropdown-item" href="/static/separardepartamento">Separar Departamento</a>
+                    <a class="dropdown-item" href="/bloqueos">Bloqueos</a>
+
+                    </div>
+
+                  </li>
+
+                   <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Citas
+                      </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/citations">Lista de Citas</a>
+
+                    </div>
+
+                  </li>
+
+
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ventas
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/static/proforma">Proforma</a>
+                    <a class="dropdown-item" href="/static/registroVta">Registro de Venta</a>
+                    <a class="dropdown-item" href="/departamentos">Departamentos</a>
+                    <a class="dropdown-item" href="/proyectos">Departamentos</a>
+                    </div>
+
+                  </li>
+              <!------------------ Vista para el gerente ------------ -->
+              <% elsif logged_in? && current_user.perfil == '2' %>
+
+                     <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Reportes
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/proyectos">Reporte 1</a>
+                        <a class="dropdown-item" href="/proyectos">Reporte 1</a>
+                        <a class="dropdown-item" href="/proyectos">Reporte 1</a>
+                        <a class="dropdown-item" href="/proyectos">Reporte 1</a>
+                      </div>
+                    </li>
+            <!------------------ Vista para el público------------ -->
+            <% else %>   
+                    <li class="nav-item">
+                      <a class="nav-link active" href="/static/aboutus">Nosotros</a>
+                    </li>
+                     <li class="nav-item">
+                      <a class="nav-link active" href="/contactos/new">Contáctenos</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="/proyectos">Proyectos</a>
+                    </li>
+   
+            <% end %> 
         </ul>
-      </div>
-      
-      <ul class="navbar-nav">
-        <% if logged_in? %>
-          <li class="nav-item">
-            <span>Bienvenido <%= @current_usuario.nombres %></span>
-          </li>
-          <li class="nav-item">
-            <%= link_to logout_path, method: :delete do %> 
-              <span>Salir</span>
+        <!------------------ Login ---------- -->
+        <ul class="navbar-nav mr-auto">
+           <% if logged_in? %>
+           
+              <li class="nav-item">
+                <span> Bienvenido  <%= session[:usuario_nombres] %> </span>
+              </li>
+
+              <li class="nav-item">
+              <%= link_to logout_path, method: :delete do %>
+                <span> Cerrar Sesión </span>
+              <% end %>
+              </li>
+
+            <% else %>
+                    
+               <li class="nav-item">
+               <a href="<%= login_path %>">Ingresar</a>
+                  <%#= link_to login_path  do %>
+                  <!--   <span> Ingresar </span> -->
+                  <%# end %>
+                </li>
+
             <% end %>
-          </li>        
-        <% end %>
-      </ul>
+        </ul>
+
+
+      </div>
+    
     </div>
   </nav><!-- End Header/Navbar -->
 
-  <!-- 
-  Agregando un nav bar
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">  
-        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button> 
-      <a class="navbar-brand text-brand" href="/">Home<span class="color-b">Agency</span></a>   
-      <a class="navbar-brand mr-auto mr-lg-0" href="/">INICIO</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="navbar-brand mr-auto mr-lg-0" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/static/aboutus">NOSOTROS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/static/contactus">CONTÁCTENOS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/proyectos">PROYECTOS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/static/faq">ACCEDER</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/static/busquedacitas">BUSQUEDA DE CITAS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/static/proforma">PROFORMA</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/static/separardepartamento">SEPARAR DEPARTAMENTO</a>
-          </li>
-            <li class="nav-item">
-            <a class="nav-link" href="/citations">CITAS</a>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Mas Opciones
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/static/admUsuarios">Adm. de Usuarios</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="/static/registroVta">Registro de Venta</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="/static/reporteDptos">Listado de Dptos.</a>
-            </div>
-          </li>
-
-        </ul>
-        
-      </div>
-    </div>
-    </nav>  
-   -->
+ 
 
 
     <div class="container">

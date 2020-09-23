@@ -47,6 +47,11 @@
   <td><%= Perfil.select(:name).where("id in (" + @usuario.perfil.to_s + ")").collect(&:name)[0] %></td>
 </h2>
 
+<h2>
+  <strong>Correo: </strong>
+  <%= @usuario.email %>
+</h2>
+
 <br/>
 
    

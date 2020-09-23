@@ -1,4 +1,5 @@
 class DetalleDepartamentosController < ApplicationController
+
   before_action :find_departamento
   #before_action :set_detalle_departamento, only: [:show, :edit, :update, :destroy]
 
@@ -6,7 +7,12 @@ class DetalleDepartamentosController < ApplicationController
   # GET /detalle_departamentos.json
   def index
     @departamento = Departamento.find(params[:departamento_id])
-    @detalle_departamentos = @departamento.detalle_departamento
+
+    if @departamento.detalle_departamento
+        @detalle_departamentos = @departamento.detalle_departamento
+    else
+      redirect_to(new_detalle_departamento_path(:departamento_id => @departamento.id))
+    end 
   end
 
   # GET /detalle_departamentos/1
@@ -17,7 +23,15 @@ class DetalleDepartamentosController < ApplicationController
 
   # GET /detalle_departamentos/new
   def new
-    @detalle_departamento = DetalleDepartamento.new(:departamento_id => @departamento.id)
+       @departamento = Departamento.find(params[:departamento_id])
+
+    if @departamento.detalle_departamento
+      @detalle_departamento = @departamento.detalle_departamento
+      redirect_to(edit_detalle_departamento_path(@detalle_departamento,:departamento_id => @departamento.id))
+    else
+      @detalle_departamento = DetalleDepartamento.new(:departamento_id => @departamento.id)
+    end 
+
   end
 
   # GET /detalle_departamentos/1/edit
@@ -79,7 +93,7 @@ class DetalleDepartamentosController < ApplicationController
     @detalle_departamento = DetalleDepartamento.find(params[:id])
     @detalle_departamento.destroy
     respond_to do |format|
-      format.html { redirect_to(detalle_departamentos_path(:departamento_id => @departamento.id), notice: 'Detalle departamento was successfully destroyed.') }
+      format.html { redirect_to(detalle_departamentos_path(:departamento_id => @departamento.id), notice: 'Se eliminaron los detalles del departamento.') }
       format.json { head :no_content }
     end
   end

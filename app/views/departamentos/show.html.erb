@@ -1,3 +1,8 @@
+
+
+
+<br><br><br><br>
+
 <%= link_to("<< Volver a Departamentos", departamentos_path(:proyecto_id => @proyecto.id)) %>
 
 
@@ -28,13 +33,10 @@
 
 <p id="notice"><%= notice %></p>
 
+ 
+
 
 <table summary="Section form fields" class="table">
-
-  <tr>
-    <th>Numero Dpto:</th>
-    <td><%= @departamento.numdpto %></td>
-  </tr>
 
   <tr>
     <th>Piso: </th>
@@ -67,10 +69,18 @@
   </tr>
 
   <tr>
-    <th>Imagen del Proyecto:</th>
+    <th>Imagen del Departamento:</th>
     <td>
       <%= image_tag(@departamento.foto.url, style: 'height:auto;width:500px;', alt: 'Foto') if @departamento.foto? %><br>
     </td>
+  </tr>
+
+
+  <tr>
+    <th>Detalles del departamento</th>
+       <td>
+       <%= link_to("Ver detalles",  detalle_departamentos_path(:departamento_id => @departamento.id), :class => "btn btn-outline-info btn-sm") %>
+       </td>
   </tr>
 
 

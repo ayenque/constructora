@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'lista_departamentos/index'
   resources :detalle_departamentos do
 	member do
 		get :delete

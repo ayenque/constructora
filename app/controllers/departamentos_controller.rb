@@ -6,10 +6,23 @@ class DepartamentosController < ApplicationController
   # GET /departamentos.json
   def index
     #obtener el  Proyecto con el id recibido
-    @proyecto = Proyecto.find(params[:proyecto_id])
-    #buscar los departamentos del author
-    @departamentos = @proyecto.departamentos
+    #@proyecto = Proyecto.find(params[:proyecto_id])    
+    #@departamentos = @proyecto.departamentos
     
+
+    if params[:piso] || params[:numdormitorio]
+      
+      @proyecto = Proyecto.find(params[:proyecto_id])
+
+      piso = params[:piso]
+      numdormitorio = params[:numdormitorio]
+      @departamentos = Departamento.where(["proyecto_id = ? AND piso LIKE ? AND numdormitorio LIKE ?", params[:proyecto_id], "%#{piso}%", "%#{numdormitorio}%"])
+    else
+      
+      @proyecto = Proyecto.find(params[:proyecto_id])    
+      @departamentos = @proyecto.departamentos
+    end
+
     #@departamentos = Departamento.all
   
   end
@@ -23,12 +36,13 @@ class DepartamentosController < ApplicationController
 
   
   def listaproyectos
-     #obtener el  Proyecto con el id recibido
-     @proyecto = Proyecto.find(params[:proyecto_id])
-     #buscar los departamentos del author
-     @departamentos = @proyecto.departamentos
+
+    #obtener el  Proyecto con el id recibido
+    @proyecto = Proyecto.find(params[:proyecto_id])
+    #buscar los departamentos del author
+    @departamentos = @proyecto.departamentos
      
-     #@departamentos = Departamento.all
+    #@departamentos = Departamento.all
     
   end
 
@@ -126,6 +140,7 @@ class DepartamentosController < ApplicationController
     end
 
     def find_proyecto
+
       @proyecto = Proyecto.find(params[:proyecto_id])
     end
 end

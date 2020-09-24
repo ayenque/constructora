@@ -150,6 +150,20 @@ ActiveRecord::Schema.define(version: 2020_09_24_011923) do
     t.string "password"
   end
 
+  create_table "venta", force: :cascade do |t|
+    t.string "cliente"
+    t.string "formaPago"
+    t.string "dpto"
+    t.decimal "precio"
+    t.string "banco"
+    t.string "nroCtaOrigen"
+    t.decimal "montoAbonado"
+    t.decimal "montoDscto"
+    t.decimal "montoPagar"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "detalle_departamentos", "departamentos"
   add_foreign_key "proforma_details", "proformas"
   add_foreign_key "proforma_details", "proyectos"

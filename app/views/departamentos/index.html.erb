@@ -11,12 +11,19 @@
       <div class="col-md-12 col-lg-4">
         <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
           <ol class="breadcrumb">
+
+            
+
             <li class="breadcrumb-item">
-              <%= link_to 'Lista Departamentos', listadepartamentos_departamento_path(@departamentos,:proyecto_id => @proyecto.id), :class => "btn btn-warning" %>
+              <%= link_to 'Regresar a Proyectos', proyectos_path, :class => "btn btn-outline-warning  active" %>
             </li>
+
+            <% if logged_in? %>
             <li class="breadcrumb-item active" aria-current="page">
               <%= link_to('Nuevo', new_departamento_path(:proyecto_id => @proyecto.id), :class => "btn btn-warning" )  %>
             </li>
+            <% end %>
+
           </ol>
         </nav>
       </div>
@@ -57,41 +64,9 @@
 </div>
 
 <hr>
-<div class="container">
 
-  <% n = @departamentos.count/4 %>
-  <% count = 0 %>
-  <% n.downto(0) do %>
-    <!-- Creamos la fila -->
-    <div class="row">
-      <!-- Creamos maximo 3 columnas y sale -->
-      <% 3.downto(0) do |i| %>
-        <!-- Verificamos que el  count no sea mayor a la cantidad de proyectos para evitar error -->
-        <% if count == @departamentos.count %>
-          <% break %>
-        <% end %>
-        <!-- Obtenemos el proyectos que toca -->
-        <% departamentos = @departamentos[count] %>
-        <!-- Utilizamos el proyectos -->
-        <div class="card">
-          <%= (image_tag(departamentos.foto.url, style: 'height:220px;width:275px;', alt: 'Foto') if departamentos.foto?) %>
-          <div class="card-body">
-            <h4 class="card-title">Departamento: <%= departamentos.numdpto %></h4>
-            <h6 class="card-text">Piso: <%= departamentos.piso %></h6>
-            <h7 class="card-text">Precio $: <%= departamentos.precio %></h7>
-            <p class="card-text">Dormitorios: <%= departamentos.numdormitorio %></p>
-             <%= link_to('Ver detalles', departamento_path(departamentos,:proyecto_id => @proyecto.id), :class=> "btn btn-warning") %>
-          </div>
-        </div>
-        <!-- Aumentamos la posición para que en la siguiente utilice el siguiente proyectos -->
-        <% count += 1 %>
-      <% end %>
-    </div>
-  <% end %>
 
-</div>
-
-<hr>
+<% if logged_in? %>
 
 <table class="table">
   <thead class = "table-success">
@@ -128,3 +103,42 @@
     <% end %>
   </tbody>
 </table>
+
+<hr>
+<br>
+<% end %>
+
+
+<div class="container">
+
+  <% n = @departamentos.count/4 %>
+  <% count = 0 %>
+  <% n.downto(0) do %>
+    <!-- Creamos la fila -->
+    <div class="row">
+      <!-- Creamos maximo 3 columnas y sale -->
+      <% 3.downto(0) do |i| %>
+        <!-- Verificamos que el  count no sea mayor a la cantidad de proyectos para evitar error -->
+        <% if count == @departamentos.count %>
+          <% break %>
+        <% end %>
+        <!-- Obtenemos el proyectos que toca -->
+        <% departamentos = @departamentos[count] %>
+        <!-- Utilizamos el proyectos -->
+        <div class="card">
+          <%= (image_tag(departamentos.foto.url, style: 'height:220px;width:275px;', alt: 'Foto') if departamentos.foto?) %>
+          <div class="card-body">
+            <h4 class="card-title">Departamento: <%= departamentos.numdpto %></h4>
+            <h6 class="card-text">Piso: <%= departamentos.piso %></h6>
+            <h7 class="card-text">Precio $: <%= departamentos.precio %></h7>
+            <p class="card-text">Dormitorios: <%= departamentos.numdormitorio %></p>
+            <%= link_to('Ver Detalles', departamento_path(departamentos,:proyecto_id => @proyecto.id), :class => "btn btn-outline-success active") %>
+          </div>
+        </div>
+        <!-- Aumentamos la posición para que en la siguiente utilice el siguiente proyectos -->
+        <% count += 1 %>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>

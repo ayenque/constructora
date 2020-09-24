@@ -75,15 +75,14 @@
     </td>
   </tr>
 
-
-  <tr>
-    <th>Detalles del departamento</th>
-       <td>
-       <%= link_to("Ver detalles",  detalle_departamentos_path(:departamento_id => @departamento.id), :class => "btn btn-outline-info btn-sm") %>
-       </td>
-  </tr>
-
-
 </table>
 
+<% if logged_in? %>
+
 <%= link_to 'Editar departamento', edit_departamento_path(@departamento,:proyecto_id => @proyecto.id), :class => "btn btn-outline-success active" %> 
+
+<%= link_to("Ver detalles",  detalle_departamentos_path(:departamento_id => @departamento.id), :class => "btn btn-outline-info") %>
+
+<% end %> 
+
+

@@ -69,8 +69,8 @@
                       </a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/proyectos">Proyectos</a>
-                    <a class="dropdown-item" href="/proyectos">Proyectos</a>
+                    <a class="dropdown-item" href="/proyectos">Lista Proyectos</a>
+                    <a class="dropdown-item" href="/proyectos">Buscar <P></P>Proyecto</a>
 
                     </div>
 
@@ -84,7 +84,7 @@
                       </a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/departamentos">Departamentos</a>
+                    <a class="dropdown-item" href="/lista_departamentos">Lista Departamentos</a>
                     <a class="dropdown-item" href="/static/separardepartamento">Separar Departamento</a>
                     <a class="dropdown-item" href="/bloqueos">Bloqueos</a>
 
@@ -165,7 +165,7 @@
             <% else %>
                     
                <li class="nav-item">
-               <a href="<%= login_path %>">Ingresar</a>
+               <button><a href="<%= login_path %>">Ingresar</a></button>
                   <%#= link_to login_path  do %>
                   <!--   <span> Ingresar </span> -->
                   <%# end %>

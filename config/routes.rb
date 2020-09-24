@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :bancos
+  resources :forma_pagos
+  resources :venta
   resources :user_profiles
 
   

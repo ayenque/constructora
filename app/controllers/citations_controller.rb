@@ -4,8 +4,20 @@ class CitationsController < ApplicationController
   # GET /citations
   # GET /citations.json
   def index
-    @citations = Citation.all
-    @citations = Citation.paginate({page: params[:page], per_page: 5})
+    if session[:usuario_id] == nil
+      redirect_to :root
+
+    else
+        if params[:dni] || params[:nombre] || params[:agente]
+          dni = params[:dni]
+          nombre = params[:nombre]
+          agente = params[:agente]
+          @citations = Citation.where(["dni LIKE ? AND nombre LIKE ? AND agente LIKE ?", "%#{dni}%", "%#{nombre}% ", "%#{agente}% "])
+        else
+          @citations = Citation.all
+          @citations = Citation.paginate({page: params[:page], per_page: 5})
+        end
+      end
   end
 
   # GET /citations/1
@@ -27,7 +39,11 @@ class CitationsController < ApplicationController
 
   # GET /citations/1/edit
   def edit
-    @citation = Citation.find(params[:id])
+    if session[:usuario_id] == nil
+      redirect_to :root
+    else
+      @citation = Citation.find(params[:id])
+    end
 
   end
 
@@ -52,27 +68,35 @@ class CitationsController < ApplicationController
   # PATCH/PUT /citations/1
   # PATCH/PUT /citations/1.json
   def update
-  
-    respond_to do |format|
-      if @citation.update(citation_params)
-        format.html { redirect_to citations_url, notice: 'Los datos de la cita fueron actualizados.' }
-        format.json { render :show, status: :ok, location: @citation }
-      else
-        format.html { render :edit }
-        format.json { render json: @citation.errors, status: :unprocessable_entity }
+    if session[:usuario_id] == nil
+      redirect_to :root
+    else
+
+          respond_to do |format|
+            if @citation.update(citation_params)
+              format.html { redirect_to citations_url, notice: 'Los datos de la cita fueron actualizados.' }
+              format.json { render :show, status: :ok, location: @citation }
+            else
+              format.html { render :edit }
+              format.json { render json: @citation.errors, status: :unprocessable_entity }
+            end
+          end
       end
-    end
 
   end
 
   # DELETE /citations/1
   # DELETE /citations/1.json
   def destroy
-    @citation.destroy
-    respond_to do |format|
-      format.html { redirect_to citations_url, notice: 'Cita eliminada' }
-      format.json { head :no_content }
-    end
+    if session[:usuario_id] != nil and session[:usuario_perfil] == '1'
+        @citation.destroy
+        respond_to do |format|
+          format.html { redirect_to citations_url, notice: 'Cita eliminada' }
+          format.json { head :no_content }
+        end
+   else
+    redirect_to :root
+   end
   end
 
   private
@@ -83,6 +107,6 @@ class CitationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def citation_params
-      params.require(:citation).permit(:dni, :nombre, :apellido, :email, :telefono, :fechacita, :mensaje)
+      params.require(:citation).permit(:dni, :nombre, :apellido, :email, :telefono, :fechacita, :mensaje, :agente)
     end
 end

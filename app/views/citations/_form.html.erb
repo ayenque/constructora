@@ -72,8 +72,7 @@
   
   </div>
 
-  
-    <div class="row">
+     <div class="row">
 
       <div class="col-md-12">
           <div class="field">
@@ -84,12 +83,24 @@
 
     </div>
 
-  <div class="col-md-12 text-center">
+    
+     <% if logged_in? && current_user.perfil == '1' %>
+          <div class="row">
+             <div class="col-md-12">
+             <div class="field">
+              <label for="inputAgente">Agente</label>
+              <%= form.select :agente, options_from_collection_for_select(Usuario.all, :id, :nombres) , { :include_blank => "Agente a asignar" }, { :class => "form-control" } %>
+            </div>
+            </div>
+          </div>
+    <% end %>
+
+
+   <div class="col-md-12 text-center">
     <div class="actions">
       <%= form.submit "Enviar Datos", :class => "btn btn-a" %>
     </div>
   </div>
-
 
 <% end %>
 

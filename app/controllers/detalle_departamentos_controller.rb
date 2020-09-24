@@ -18,6 +18,7 @@ class DetalleDepartamentosController < ApplicationController
   # GET /detalle_departamentos/1
   # GET /detalle_departamentos/1.json
   def show
+    
     @detalle_departamento = DetalleDepartamento.find(params[:id])
   end
 

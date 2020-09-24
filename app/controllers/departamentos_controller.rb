@@ -12,7 +12,6 @@ class DepartamentosController < ApplicationController
     if params[:piso] || params[:numdormitorio]
       
       @proyecto = Proyecto.find(params[:proyecto_id])
-      
       piso = params[:piso]
       numdormitorio = params[:numdormitorio]
       @departamentos = Departamento.where(["proyecto_id = ? AND piso LIKE ? AND numdormitorio LIKE ?", params[:proyecto_id], "%#{piso}%", "%#{numdormitorio}%"])

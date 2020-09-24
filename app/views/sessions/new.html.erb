@@ -31,13 +31,6 @@
     </section>
 
 
-<div class="container">
-    <%= yield :intro %>
-    <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
-    <% end %>
-    <%= yield %>
-</div>
 
 <div class="row">
     <div class="offset-4 col-4">
@@ -74,33 +67,3 @@
 
 
 
-
-
-
-
-
-
-<!--
-<div class="row">
-    <div class="offset-3 col-6">
-        <%= form_for(:session, url: login_path) do |f| %>
-
-            <%= f.label :email %>
-            <%= f.email_field :email, :class => "form-control" %>
-            
-            <%= f.label :password %>
-            <%= f.password_field :password, :class => "form-control" %>
-            <br>
-            <%= f.submit "Acceder", :class => "btn btn-success" %>
-        <% end %>
-        
-        <p>
-            Tienes un usuario?
-            <%= link_to "Registrate", signup_path %>
-
-        </p>
-        
-
-    </div>
-</div>
--->

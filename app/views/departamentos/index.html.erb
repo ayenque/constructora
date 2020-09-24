@@ -80,7 +80,7 @@
             <h6 class="card-text">Piso: <%= departamentos.piso %></h6>
             <h7 class="card-text">Precio $: <%= departamentos.precio %></h7>
             <p class="card-text">Dormitorios: <%= departamentos.numdormitorio %></p>
-            <%= link_to('Ver Detalles', departamento_path(departamentos,:proyecto_id => @proyecto.id), :class => "btn btn-outline-success active") %>
+             <%= link_to('Ver detalles', departamento_path(departamentos,:proyecto_id => @proyecto.id), :class=> "btn btn-warning") %>
           </div>
         </div>
         <!-- Aumentamos la posición para que en la siguiente utilice el siguiente proyectos -->

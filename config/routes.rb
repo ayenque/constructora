@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :bancos
+  resources :forma_pagos
+  resources :venta
   get 'lista_departamentos/index'
 
   resources :detalle_departamentos do

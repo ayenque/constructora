@@ -5,15 +5,15 @@ class SessionsController < ApplicationController
     end
 
     def create
-        user = Usuario.find_by(email: params[:session][:email], password: params[:session][:password])
+        usuario = Usuario.find_by(email: params[:session][:email], password: params[:session][:password])
 
-        if user
-            log_in user
+        if usuario
+            log_in usuario
 
             redirect_to :root
         else
             flash[:danger] = 'Credenciales no validas.'
-            render "static/faq"
+            render "sessions/new"
         end
     end
 

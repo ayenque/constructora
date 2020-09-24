@@ -2,18 +2,31 @@ Rails.application.routes.draw do
   resources :bancos
   resources :forma_pagos
   resources :venta
+  resources :user_profiles
+
+  
   get 'lista_departamentos/index'
 
-  resources :detalle_departamentos do
-	member do
-		get :delete
-	end
-  end
+	resources :lista_departamentos do
+		member do
+			get :delete
+			get :show_user
+  		end
+  	end
 
+	#get 'lista_departamentos/index'
 
-  resources :contactos
-  resources :bloqueos
-  resources :usuarios
+	#resources :lista_departamentos
+
+    resources :detalle_departamentos do
+		member do
+			get :delete
+		end
+  	end
+
+	resources :contactos
+	resources :bloqueos
+	resources :usuarios
 
   	resources :alumnos
   	get 'home/index'
@@ -34,7 +47,6 @@ Rails.application.routes.draw do
 			get :show_user
   		end
 	end
-
 
 	resources :proyectos do
 		member do
@@ -66,7 +78,7 @@ Rails.application.routes.draw do
 	get 'static/detalledepartamento'
 	get 'static/solicitarcita'
 	get 'static/departamentos'
-
+	
 
 	root 'home#index'
 

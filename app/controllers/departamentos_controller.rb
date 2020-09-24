@@ -7,20 +7,20 @@ class DepartamentosController < ApplicationController
   def index
     #obtener el  Proyecto con el id recibido
     #@proyecto = Proyecto.find(params[:proyecto_id])    
-    #@departamentos = @proyecto.departamentos
-    
+    #@departamentos = @proyecto.departamentos    
 
     if params[:piso] || params[:numdormitorio]
       
       @proyecto = Proyecto.find(params[:proyecto_id])
-
+      
       piso = params[:piso]
       numdormitorio = params[:numdormitorio]
       @departamentos = Departamento.where(["proyecto_id = ? AND piso LIKE ? AND numdormitorio LIKE ?", params[:proyecto_id], "%#{piso}%", "%#{numdormitorio}%"])
+
     else
-      
       @proyecto = Proyecto.find(params[:proyecto_id])    
       @departamentos = @proyecto.departamentos
+
     end
 
     #@departamentos = Departamento.all
@@ -32,6 +32,7 @@ class DepartamentosController < ApplicationController
   def show
 
     @departamento = Departamento.find(params[:id])
+    @detalle_departamentos = @departamento.detalle_departamento
   end
 
   def listadepartamentos

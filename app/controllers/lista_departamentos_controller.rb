@@ -11,6 +11,8 @@ class ListaDepartamentosController < ApplicationController
     else
       @lista_departamentos = Departamento.all
     end
+
+  
   	
   end
 

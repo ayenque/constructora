@@ -54,14 +54,15 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="offset-4 col-4">
-        <nav class="nav">
-            <a class="nav-link" href="/usuarios/new">Crear Usuario</a>
-        </nav>
+<% if logged_in? and session[:usuario_perfil] == '1' %>
+    <div class="row">
+        <div class="offset-4 col-4">
+            <nav class="nav">
+                <a class="nav-link" href="/usuarios/new">Crear Usuario</a>
+            </nav>
+        </div>
     </div>
-</div>
-
+<% end %>
 
 <% end %>
 

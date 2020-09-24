@@ -12,7 +12,7 @@ class CitationsController < ApplicationController
           dni = params[:dni]
           nombre = params[:nombre]
           agente = params[:agente]
-          @citations = Citation.where(["dni LIKE ? AND nombre LIKE ? AND agente LIKE ?", "%#{dni}%", "%#{nombre}% ", "%#{agente}% "])
+          @citations = Citation.where(["dni LIKE ? AND nombre LIKE ? AND agente LIKE ? ", "%#{dni}%", "%#{nombre}%", "%#{agente}%"])
         else
           @citations = Citation.all
           @citations = Citation.paginate({page: params[:page], per_page: 5})

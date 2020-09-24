@@ -11,7 +11,11 @@ class DetalleDepartamentosController < ApplicationController
     if @departamento.detalle_departamento
         @detalle_departamentos = @departamento.detalle_departamento
     else
-      redirect_to(new_detalle_departamento_path(:departamento_id => @departamento.id))
+      if session[:usuario_id] == nil
+        redirect_to :root
+      else
+        redirect_to(new_detalle_departamento_path(:departamento_id => @departamento.id))
+      end
     end 
   end
 

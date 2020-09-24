@@ -4,7 +4,11 @@ class UsuariosController < ApplicationController
   # GET /usuarios
   # GET /usuarios.json
   def index
-    @usuarios = Usuario.all
+    if session[:usuario_id] != nil and session[:usuario_perfil] == '1'
+      @usuarios = Usuario.all
+    else
+      redirect_to :root
+    end
   end
 
   # GET /usuarios/1
@@ -14,7 +18,11 @@ class UsuariosController < ApplicationController
 
   # GET /usuarios/new
   def new
-    @usuario = Usuario.new
+    if session[:usuario_id] != nil and session[:usuario_perfil] == '1'
+      @usuario = Usuario.new
+    else
+      redirect_to :root
+    end
   end
 
   # GET /usuarios/1/edit
@@ -24,16 +32,22 @@ class UsuariosController < ApplicationController
   # POST /usuarios
   # POST /usuarios.json
   def create
-    @usuario = Usuario.new(usuario_params)
 
-    respond_to do |format|
-      if @usuario.save
-        format.html { redirect_to @usuario, notice: 'El usuario fue creado satisfactoriamente.' }
-        format.json { render :show, status: :created, location: @usuario }
-      else
-        format.html { render :new }
-        format.json { render json: @usuario.errors, status: :unprocessable_entity }
-      end
+    if session[:usuario_id] != nil and session[:usuario_perfil] == '1'
+
+            @usuario = Usuario.new(usuario_params)
+
+            respond_to do |format|
+              if @usuario.save
+                format.html { redirect_to @usuario, notice: 'El usuario fue creado satisfactoriamente.' }
+                format.json { render :show, status: :created, location: @usuario }
+              else
+                format.html { render :new }
+                format.json { render json: @usuario.errors, status: :unprocessable_entity }
+              end
+            end
+    else
+            redirect_to :root
     end
   end
 

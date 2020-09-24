@@ -43,7 +43,6 @@
   </head>
 
   <body>
-
   <!-- ======= Header/Navbar ======= -->
   <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
     <div class="container">
@@ -92,19 +91,11 @@
 
                   </li>
 
-                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Citas
-                      </a>
 
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/citations">Lista de Citas</a>
 
-                    </div>
-
-                  </li>
-
+                  <li class="nav-item">
+                      <a class="nav-link active" href="/citations">Citas</a>
+                    </li>
 
                     <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -114,25 +105,22 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/static/proforma">Proforma</a>
                     <a class="dropdown-item" href="/static/registroVta">Registro de Venta</a>
-                    <a class="dropdown-item" href="/departamentos">Departamentos</a>
-                    <a class="dropdown-item" href="/proyectos">Departamentos</a>
+                    <a class="dropdown-item" href="/bloqueos">Bloqueos</a>
                     </div>
 
                   </li>
               <!------------------ Vista para el gerente ------------ -->
               <% elsif logged_in? && current_user.perfil == '2' %>
 
-                     <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Reportes
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/proyectos">Reporte 1</a>
-                        <a class="dropdown-item" href="/proyectos">Reporte 1</a>
-                        <a class="dropdown-item" href="/proyectos">Reporte 1</a>
-                        <a class="dropdown-item" href="/proyectos">Reporte 1</a>
-                      </div>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="/proyectos">Proyectos</a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link active" href="/lista_departamentos">Departamentos</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="/citations">Citas</a>
                     </li>
             <!------------------ Vista para el público------------ -->
             <% else %>   
@@ -149,29 +137,31 @@
             <% end %> 
         </ul>
         <!------------------ Login ---------- -->
-        <ul class="navbar-nav mr-auto">
-           <% if logged_in? %>
+        <ul class="navbar-nav">
+            <% if logged_in? %>
            
               <li class="nav-item">
-                <span> Bienvenido  <%= session[:usuario_nombres] %> </span>
+                <span>Bienvenido:<br>  
+                  <%= session[:usuario_nombres] %> </span>
               </li>
 
               <li class="nav-item">
-              <%= link_to logout_path, method: :delete do %>
-                <span> Cerrar Sesión </span>
-              <% end %>
+                <%= link_to logout_path, :class => "btn btn-warning", method: :delete do %>                
+                <span class="fa fa-sign-out"> Cerrar Sesión </span>
+                <% end %>
               </li>
 
             <% else %>
-                    
-               <li class="nav-item">
-               <button><a href="<%= login_path %>">Ingresar</a></button>
+                
+              <li class="nav-item">
+                <a href="<%= login_path %>" class="btn btn-warning" role="button" aria-disabled="true"><span class="fa fa-sign-in"> Iniciar Sesión</span></a>
+                <!--<a href="<%= login_path %>" align ="center">Ingresar</a>-->
                   <%#= link_to login_path  do %>
                   <!--   <span> Ingresar </span> -->
                   <%# end %>
-                </li>
-
+              </li>
             <% end %>
+
         </ul>
 
 
@@ -180,7 +170,7 @@
     </div>
   </nav><!-- End Header/Navbar -->
 
- 
+
 
 
     <div class="container">
